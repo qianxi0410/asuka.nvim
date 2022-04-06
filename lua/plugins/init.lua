@@ -79,6 +79,8 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
+ 	use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
+
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
@@ -93,6 +95,9 @@ return packer.startup(function(use)
   use "nvim-lua/lsp-status.nvim" -- status bar for lsp-status
   use "nvim-lua/completion-nvim" -- completion for lsp-status
   use "RishabhRD/nvim-lsputils" -- status bar for lsp-status
+  use "nvim-lua/lsp_extensions.nvim"
+  use "j-hui/fidget.nvim"
+
 
 
   -- Telescope
@@ -139,6 +144,10 @@ return packer.startup(function(use)
 
   -- smooth scrolling
   use "karb94/neoscroll.nvim"
+
+  use "gelguy/wilder.nvim"
+
+  use "ray-x/lsp_signature.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
