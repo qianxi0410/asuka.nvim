@@ -96,6 +96,12 @@ return packer.startup(function(use)
   -- Telescope
   use "nvim-telescope/telescope.nvim"
 
+  -- gps
+  use {
+	  "SmiteshP/nvim-gps",
+	  requires = "nvim-treesitter/nvim-treesitter"
+  }
+
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
