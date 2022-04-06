@@ -111,6 +111,9 @@ return packer.startup(function(use)
   -- wakatime
   use "wakatime/vim-wakatime"
 
+  -- markdown preview
+  use "iamcco/markdown-preview.nvim"
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
