@@ -137,6 +137,9 @@ return packer.startup(function(use)
   -- word serach
   use "kevinhwang91/nvim-hlslens"
 
+  -- smooth scrolling
+  use "karb94/neoscroll.nvim"
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

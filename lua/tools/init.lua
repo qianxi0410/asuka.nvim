@@ -7,3 +7,4 @@ require "tools.telescope"
 require "tools.toggleterm"
 require "tools.whichkey"
 require "tools.gitblame"
+require("neoscroll").setup()
