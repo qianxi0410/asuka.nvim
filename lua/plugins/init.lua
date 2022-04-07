@@ -182,6 +182,19 @@ return packer.startup(function(use)
   use { "leoluz/nvim-dap-go", module = "dap-go" } -- debug golang
   use { "jbyuki/one-small-step-for-vimkind", module = "osv" } -- debug any Lua code running in a Neovim instance
 
+  use "kevinhwang91/nvim-bqf"
+  use "RRethy/vim-illuminate"
+  use "folke/todo-comments.nvim"
+  use "stevearc/aerial.nvim"
+  use "folke/trouble.nvim"
+  use 'sindrets/winshift.nvim'
+  use "ldelossa/litee.nvim"
+  use "ldelossa/litee-calltree.nvim"
+  use "mtdl9/vim-log-highlighting"
+  use "Pocco81/HighStr.nvim"
+  use "dstein64/vim-startuptime"
+  use "AckslD/nvim-neoclip.lua"
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
