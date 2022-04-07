@@ -171,6 +171,16 @@ return packer.startup(function(use)
 
   use "ray-x/lsp_signature.nvim"
 
+  -- Debugger
+  use "ravenxrz/DAPInstall.nvim"   -- help us install several debuggers
+  use "ravenxrz/nvim-dap"
+  use "theHamsta/nvim-dap-virtual-text"
+  use "rcarriga/nvim-dap-ui"
+  use "nvim-telescope/telescope-dap.nvim"
+  use "mfussenegger/nvim-dap-python"    -- debug python
+  use { "leoluz/nvim-dap-go", module = "dap-go" } -- debug golang
+  use { "jbyuki/one-small-step-for-vimkind", module = "osv" } -- debug any Lua code running in a Neovim instance
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
