@@ -9,12 +9,15 @@ M.setup = function()
   }
 
   for _, sign in ipairs(signs) do
-    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
   end
 
   local config = {
-    -- disable virtual text
-    virtual_text = false,
+    -- virtual text
+    virtual_text = {
+      prefix = "",
+      color = "#FF0000"
+    },
     -- show signs
     signs = {
       active = signs,
@@ -26,13 +29,14 @@ M.setup = function()
       focusable = false,
       style = "minimal",
       border = "rounded",
-      source = "always",
+      -- source = "",
       header = "",
       prefix = "",
     },
   }
 
   vim.diagnostic.config(config)
+
 
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
     border = "rounded",
@@ -41,6 +45,35 @@ M.setup = function()
   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
     border = "rounded",
   })
+end
+
+local function lsp_highlight_line_number(client)
+  -- highlight the diagnostic lines but without icons show
+  vim.cmd [[
+    highlight! DiagnosticVirtualTextError guifg=#db4b4b 
+    highlight! DiagnosticVirtualTextWarn guifg=#e0af68
+    highlight! DiagnosticVirtualTextInfo guifg=#0db9d7
+    highlight! DiagnosticVirtualTextHint guifg=#10B981
+  ]]
+
+  -- show diagnostic info when hover
+  vim.o.updatetime = 250
+  vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
+
+
+  -- highlight the selected context
+  -- if client.resolved_capabilities.document_highlight then
+  --     vim.cmd [[
+  --       hi! LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
+  --       hi! LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
+  --       hi! LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
+  --       augroup lsp_document_highlight
+  --         autocmd! * <buffer>
+  --         autocmd! CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+  --         autocmd! CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+  --       augroup END
+  --   ]]
+  -- end
 end
 
 local function lsp_highlight_document(client)
@@ -89,6 +122,7 @@ M.on_attach = function(client, bufnr)
   -- end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
+  lsp_highlight_line_number(client)
   require("aerial").on_attach(client, bufnr)
 
   require "lsp_signature".on_attach()
