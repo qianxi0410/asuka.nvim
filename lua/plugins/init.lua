@@ -67,6 +67,9 @@ return packer.startup(function(use)
 
   use "yamatsum/nvim-cursorline"
 
+
+  use "rcarriga/nvim-notify"
+
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
@@ -102,6 +105,12 @@ return packer.startup(function(use)
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
+  use {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    run = "make",
+  }
+ use "nvim-telescope/telescope-ui-select.nvim"
+ use "nvim-telescope/telescope-live-grep-raw.nvim"
 
   -- gps
   use {
