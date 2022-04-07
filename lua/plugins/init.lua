@@ -124,6 +124,9 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
+  use "nvim-treesitter/nvim-treesitter-textobjects"  -- enhance texetobject selection
+  use "romgrk/nvim-treesitter-context"  -- show class/function at the top
+  use "andymass/vim-matchup"
 
   -- Git
   use "lewis6991/gitsigns.nvim"
