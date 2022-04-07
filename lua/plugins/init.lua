@@ -141,6 +141,7 @@ return packer.startup(function(use)
   use "lewis6991/gitsigns.nvim"
   use "f-person/git-blame.nvim"
   use "github/copilot.vim"
+  use "tanvirtin/vgit.nvim"
 
   -- wakatime
   use "wakatime/vim-wakatime"
