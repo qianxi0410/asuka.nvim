@@ -83,6 +83,13 @@ return packer.startup(function(use)
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
  	use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
+  use "hrsh7th/cmp-nvim-lua"
+  use "ethanholz/nvim-lastplace"
+  use "BurntSushi/ripgrep"
+  use "nvim-pack/nvim-spectre"
+  use "haringsrob/nvim_context_vt"
+  use "tpope/vim-repeat"
+  use "tpope/vim-surround"
 
 
   -- snippets
@@ -152,6 +159,7 @@ return packer.startup(function(use)
       require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
     end
   }
+  use { "rhysd/accelerated-jk", opt = true, event = "BufReadPost" }
 
   -- word serach
   use "kevinhwang91/nvim-hlslens"
