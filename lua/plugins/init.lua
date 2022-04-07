@@ -97,9 +97,11 @@ return packer.startup(function(use)
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "nvim-lua/lsp-status.nvim" -- status bar for lsp-status
   use "nvim-lua/completion-nvim" -- completion for lsp-status
-  use "RishabhRD/nvim-lsputils" -- status bar for lsp-status
   use "nvim-lua/lsp_extensions.nvim"
   use "j-hui/fidget.nvim"
+
+  use "kosayoda/nvim-lightbulb"
+  use "ray-x/lsp_signature.nvim"  -- show function signature when typing
 
 
 
