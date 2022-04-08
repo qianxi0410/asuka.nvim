@@ -87,8 +87,8 @@ return packer.startup(function(use)
   use "ethanholz/nvim-lastplace"
   use "BurntSushi/ripgrep"
   use "nvim-pack/nvim-spectre"
-  use "haringsrob/nvim_context_vt"
-  use "tpope/vim-repeat"
+  -- use "haringsrob/nvim_context_vt"
+  -- use "tpope/vim-repeat"
   use "tpope/vim-surround"
 
 

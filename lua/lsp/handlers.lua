@@ -15,8 +15,7 @@ M.setup = function()
   local config = {
     -- virtual text
     virtual_text = {
-      prefix = "",
-      color = "#FF0000"
+      prefix = ""
     },
     -- show signs
     signs = {
@@ -57,8 +56,8 @@ local function lsp_highlight_line_number(client)
   ]]
 
   -- show diagnostic info when hover
-  vim.o.updatetime = 250
-  vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
+  -- vim.o.updatetime = 250
+  -- vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
 
 
   -- highlight the selected context
