@@ -122,7 +122,7 @@ M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
   lsp_highlight_line_number(client)
-  require("aerial").on_attach(client, bufnr)
+  -- require("aerial").on_attach(client, bufnr)
 
   require "lsp_signature".on_attach()
 end

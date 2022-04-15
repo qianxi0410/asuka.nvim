@@ -43,6 +43,8 @@ return packer.startup(function(use)
   -- pkg manager.
   use "wbthomason/packer.nvim" 
   
+  use "nvim-lua/plenary.nvim"
+  
   -- golang.
   use {
     "fatih/vim-go",
