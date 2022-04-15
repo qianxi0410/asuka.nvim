@@ -6,7 +6,8 @@ end
 bufferline.setup {
   options = {
     mode = "buffers",
-    numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
+    numbers = "ordinal", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
+    number_style = "superscript",
     close_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
     right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
     left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
@@ -28,7 +29,8 @@ bufferline.setup {
     diagnostics = "nvim_lsp", -- | "coc",
     diagnostics_update_in_insert = false,
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
-      return '(' .. count .. ')'
+      local icon = level:match("error") and " " or " "
+      return " " .. icon .. count
     end,
     offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
     show_buffer_icons = true,
