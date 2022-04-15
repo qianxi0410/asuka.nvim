@@ -1,5 +1,4 @@
 require "editor.autocommands"
-require "editor.autopairs"
 require "editor.keymaps"
 require "editor.options"
 require "editor.treesitter"

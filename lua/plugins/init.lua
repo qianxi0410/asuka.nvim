@@ -40,39 +40,47 @@ packer.init {
 
 -- Install your plugins here
 return packer.startup(function(use)
-  use "wbthomason/packer.nvim" -- Have packer manage itself
+  -- pkg manager.
+  use "wbthomason/packer.nvim" 
   
-  -- language
+  -- golang.
   use {
     "fatih/vim-go",
     ft = "go"
   }
-  
-  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
-  use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-  use "numToStr/Comment.nvim" -- Easily comment stuff
+  -- comment gcc or gbc.
+  use "numToStr/Comment.nvim" 
+  -- icons .
   use "kyazdani42/nvim-web-devicons"
+
+  -- file explorer.
   use "kyazdani42/nvim-tree.lua"
+
+  -- buffer explorer.
   use "akinsho/bufferline.nvim"
-  use "moll/vim-bbye"
+
+  -- lualine.
   use "nvim-lualine/lualine.nvim"
+
+  -- internal terminal.  
   use "akinsho/toggleterm.nvim"
+
+  -- project find for telescope.
   use "ahmedkhalf/project.nvim"
+
+  -- speed up.
   use "lewis6991/impatient.nvim"
-  use "lukas-reineke/indent-blankline.nvim"
+
+  -- welcome page.
   use "goolord/alpha-nvim"
-  use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
+
+  -- fix cursorhold problem ?
+  use "antoinemadec/FixCursorHold.nvim"
+
+  -- hint for snapkey.
   use "folke/which-key.nvim"
 
-  use "yamatsum/nvim-cursorline"
-
-
-  use "rcarriga/nvim-notify"
-
   -- Colorschemes
-  -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
-  -- use "lunarvim/darkplus.nvim"
   use "rose-pine/neovim"
   use "sainnhe/sonokai"
 
@@ -105,13 +113,12 @@ return packer.startup(function(use)
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "nvim-lua/lsp-status.nvim" -- status bar for lsp-status
   use "nvim-lua/completion-nvim" -- completion for lsp-status
-  use "nvim-lua/lsp_extensions.nvim"
-  use "j-hui/fidget.nvim"
 
+
+  -- lightbulb like vscode.
   use "kosayoda/nvim-lightbulb"
-  use "ray-x/lsp_signature.nvim"  -- show function signature when typing
-
-
+  -- show signatur when you type func params.
+  use "ray-x/lsp_signature.nvim" 
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
@@ -138,11 +145,12 @@ return packer.startup(function(use)
   use "romgrk/nvim-treesitter-context"  -- show class/function at the top
   use "andymass/vim-matchup"
 
-  -- Git
+  -- git.
   use "lewis6991/gitsigns.nvim"
   use "f-person/git-blame.nvim"
+
+  -- auto completion.
   use "github/copilot.vim"
-  use "tanvirtin/vgit.nvim"
 
   -- wakatime
   use "wakatime/vim-wakatime"
@@ -161,19 +169,15 @@ return packer.startup(function(use)
       require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
     end
   }
-  use { "rhysd/accelerated-jk", opt = true, event = "BufReadPost" }
 
   -- word serach
   use "kevinhwang91/nvim-hlslens"
 
-  -- smooth scrolling
-  use "karb94/neoscroll.nvim"
 
+  -- icons for Popupmenu.
   use "gelguy/wilder.nvim"
 
-  use "ray-x/lsp_signature.nvim"
-
-  -- Debugger
+  -- debugger.
   use "ravenxrz/DAPInstall.nvim"   -- help us install several debuggers
   use "ravenxrz/nvim-dap"
   use "theHamsta/nvim-dap-virtual-text"
@@ -183,18 +187,21 @@ return packer.startup(function(use)
   use { "leoluz/nvim-dap-go", module = "dap-go" } -- debug golang
   use { "jbyuki/one-small-step-for-vimkind", module = "osv" } -- debug any Lua code running in a Neovim instance
 
+  -- quick fix window.
   use "kevinhwang91/nvim-bqf"
+  -- higlight select word.
   use "RRethy/vim-illuminate"
+
+  -- show todo item.
   use "folke/todo-comments.nvim"
-  use "stevearc/aerial.nvim"
   use "folke/trouble.nvim"
-  use 'sindrets/winshift.nvim'
+
+  -- side hint.
   use "ldelossa/litee.nvim"
   use "ldelossa/litee-calltree.nvim"
-  use "mtdl9/vim-log-highlighting"
-  use "Pocco81/HighStr.nvim"
+
+  -- show startup time.
   use "dstein64/vim-startuptime"
-  use "AckslD/nvim-neoclip.lua"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
