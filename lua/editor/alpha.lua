@@ -25,7 +25,7 @@ dashboard.section.buttons.val = {
 }
 
 local function footer()
-  return "make things happen"
+  return "make things happen ❤"
 end
 
 dashboard.section.footer.val = footer()
