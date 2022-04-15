@@ -1,6 +1,6 @@
 vim.cmd [[
 try
-  colorscheme sonokai
+  colorscheme rose-pine
 catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme darkplus
   set background=dark

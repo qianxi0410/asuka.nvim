@@ -72,7 +72,8 @@ return packer.startup(function(use)
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
-  use "lunarvim/darkplus.nvim"
+  -- use "lunarvim/darkplus.nvim"
+  use "rose-pine/neovim"
   use "sainnhe/sonokai"
 
   -- cmp plugins
