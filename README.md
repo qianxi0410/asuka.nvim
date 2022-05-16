@@ -1,3 +1,3 @@
-# qianxi's personal neovim config
+# neovim conf
 
 still work in progress
