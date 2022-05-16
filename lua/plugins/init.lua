@@ -43,6 +43,7 @@ return packer.startup(function(use)
   -- pkg manager.
   use "wbthomason/packer.nvim"
   use "nvim-lua/plenary.nvim"
+
   -- golang.
   use {
     "fatih/vim-go",
@@ -73,10 +74,6 @@ return packer.startup(function(use)
 
   -- welcome page.
   use "goolord/alpha-nvim"
-
-  -- fix cursorhold problem ?
-  use "antoinemadec/FixCursorHold.nvim"
-
   -- hint for snapkey.
   use "folke/which-key.nvim"
 
@@ -87,34 +84,18 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
- 	use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
   use "hrsh7th/cmp-nvim-lua"
-  use "ethanholz/nvim-lastplace"
-  use "BurntSushi/ripgrep"
-  use "nvim-pack/nvim-spectre"
-  -- use "haringsrob/nvim_context_vt"
-  -- use "tpope/vim-repeat"
-  use "tpope/vim-surround"
-
 
   -- snippets
-  use "L3MON4D3/LuaSnip" --snippet engine
+  use "L3MON4D3/LuaSnip" -- snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
-  use "saadparwaiz1/cmp_luasnip"
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
-  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "nvim-lua/lsp-status.nvim" -- status bar for lsp-status
   use "nvim-lua/completion-nvim" -- completion for lsp-status
-
-
-  -- lightbulb like vscode.
-  use "kosayoda/nvim-lightbulb"
-  -- show signatur when you type func params.
-  use "ray-x/lsp_signature.nvim" 
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
@@ -122,8 +103,8 @@ return packer.startup(function(use)
     "nvim-telescope/telescope-fzf-native.nvim",
     run = "make",
   }
- use "nvim-telescope/telescope-ui-select.nvim"
- use "nvim-telescope/telescope-live-grep-raw.nvim"
+  use "nvim-telescope/telescope-ui-select.nvim"
+  use "nvim-telescope/telescope-live-grep-raw.nvim"
 
   -- gps
   use {
@@ -157,15 +138,6 @@ return packer.startup(function(use)
   -- show color in hex
   use "norcalli/nvim-colorizer.lua"
 
-  -- motion
-  use {
-    'phaazon/hop.nvim',
-    branch = 'v1', -- optional but strongly recommended
-    config = function()
-      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-    end
-  }
-
   -- word serach
   use "kevinhwang91/nvim-hlslens"
 
@@ -186,19 +158,11 @@ return packer.startup(function(use)
   use { "leoluz/nvim-dap-go", module = "dap-go" } -- debug golang
   use { "jbyuki/one-small-step-for-vimkind", module = "osv" } -- debug any Lua code running in a Neovim instance
 
-  -- quick fix window.
-  use "kevinhwang91/nvim-bqf"
   -- higlight select word.
   use "RRethy/vim-illuminate"
 
   -- show todo item.
   use "folke/todo-comments.nvim"
-  use "folke/trouble.nvim"
-
-  -- side hint.
-  use "ldelossa/litee.nvim"
-  use "ldelossa/litee-calltree.nvim"
-
   -- show startup time.
   use "dstein64/vim-startuptime"
 
