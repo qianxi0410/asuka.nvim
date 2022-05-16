@@ -41,17 +41,15 @@ packer.init {
 -- Install your plugins here
 return packer.startup(function(use)
   -- pkg manager.
-  use "wbthomason/packer.nvim" 
-  
+  use "wbthomason/packer.nvim"
   use "nvim-lua/plenary.nvim"
-  
   -- golang.
   use {
     "fatih/vim-go",
     ft = "go"
   }
   -- comment gcc or gbc.
-  use "numToStr/Comment.nvim" 
+  use "numToStr/Comment.nvim"
   -- icons .
   use "kyazdani42/nvim-web-devicons"
 
@@ -64,7 +62,7 @@ return packer.startup(function(use)
   -- lualine.
   use "nvim-lualine/lualine.nvim"
 
-  -- internal terminal.  
+  -- internal terminal.
   use "akinsho/toggleterm.nvim"
 
   -- project find for telescope.
@@ -81,10 +79,6 @@ return packer.startup(function(use)
 
   -- hint for snapkey.
   use "folke/which-key.nvim"
-
-  -- Colorschemes
-  use "rose-pine/neovim"
-  use "sainnhe/sonokai"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -175,7 +169,10 @@ return packer.startup(function(use)
   -- word serach
   use "kevinhwang91/nvim-hlslens"
 
+  -- theme
+  use "Mofiqul/vscode.nvim"
 
+  use "romgrk/fzy-lua-native"
   -- icons for Popupmenu.
   use "gelguy/wilder.nvim"
 

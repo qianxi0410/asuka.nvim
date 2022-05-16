@@ -1,6 +1,8 @@
+vim.g.vscode_style = "dark"
+
 vim.cmd [[
 try
-  colorscheme rose-pine
+  colorscheme vscode
 catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme darkplus
   set background=dark
