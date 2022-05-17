@@ -10,6 +10,10 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- use gofumpt
+vim.g.go_fmt_command = "gopls"
+vim.g.go_gopls_gofumpt = 1
+
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
