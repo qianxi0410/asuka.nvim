@@ -5,14 +5,10 @@ end
 
 local dashboard = require("alpha.themes.dashboard")
 dashboard.section.header.val = {
-	[[	        _                          _ ]] ,
-	[[         (_)                        (_)]],
-	[[   __ _   _    __ _   _ __   __  __  _ ]],
-	[[  / _` | | |  / _` | | '_ \  \ \/ / | |]],
-	[[ | (_| | | | | (_| | | | | |  >  <  | |]],
-	[[  \__, | |_|  \__,_| |_| |_| /_/\_\ |_|]],
-	[[     | |                               ]],
-	[[     |_|                               ]], 
+    [[  /\                                  /\ ]],
+    [[ //\\       Make things happen       //\\]],
+    [[ \\//                                \\//]],
+    [[  \/                                  \/ ]],
 }
 dashboard.section.buttons.val = {
 	dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
@@ -25,7 +21,25 @@ dashboard.section.buttons.val = {
 }
 
 local function footer()
-  return "make things happen ❤"
+  -- Number of plugins
+  -- local total_plugins = #vim.tbl_keys(packer_plugins)
+  local datetime = os.date "%Y-%m-%d %H:%M:%S"
+  local plugins_text = --"   "
+    -- .. total_plugins
+    -- .. " plugins"
+     "   v"
+    .. vim.version().major
+    .. "."
+    .. vim.version().minor
+    .. "."
+    .. vim.version().patch
+    .. "   "
+    .. datetime
+  -- Quote
+  local fortune = require "alpha.fortune"
+  local quote = table.concat(fortune(), "\n")
+
+  return plugins_text .. "\n" .. quote
 end
 
 dashboard.section.footer.val = footer()
