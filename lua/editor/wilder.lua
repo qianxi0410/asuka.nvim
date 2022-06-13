@@ -1,9 +1,9 @@
 local status_ok, wilder = pcall(require, "wilder")
 if not status_ok then
-	return
+  return
 end
 
-wilder.setup({modes = {':', '/', '?'}})
+wilder.setup({ modes = { ':', '/', '?' } })
 -- Disable Python remote plugin
 wilder.set_option('use_python_remote_plugin', 0)
 
@@ -33,4 +33,3 @@ wilder.set_option('renderer', wilder.renderer_mux({
     highlighter = wilder.lua_fzy_highlighter(),
   }),
 }))
-

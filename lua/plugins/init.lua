@@ -49,6 +49,8 @@ return packer.startup(function(use)
     "fatih/vim-go",
     ft = "go"
   }
+  -- rust
+  use "simrat39/rust-tools.nvim"
   -- comment gcc or gbc.
   use "numToStr/Comment.nvim"
   -- icons .
@@ -108,8 +110,8 @@ return packer.startup(function(use)
 
   -- gps
   use {
-	  "SmiteshP/nvim-gps",
-	  requires = "nvim-treesitter/nvim-treesitter"
+    "SmiteshP/nvim-gps",
+    requires = "nvim-treesitter/nvim-treesitter"
   }
 
   -- Treesitter
@@ -118,8 +120,8 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
-  use "nvim-treesitter/nvim-treesitter-textobjects"  -- enhance texetobject selection
-  use "romgrk/nvim-treesitter-context"  -- show class/function at the top
+  use "nvim-treesitter/nvim-treesitter-textobjects" -- enhance texetobject selection
+  use "romgrk/nvim-treesitter-context" -- show class/function at the top
   use "andymass/vim-matchup"
 
   -- git.
@@ -142,19 +144,20 @@ return packer.startup(function(use)
   use "kevinhwang91/nvim-hlslens"
 
   -- theme
-  use "Mofiqul/vscode.nvim"
+  -- use "Mofiqul/vscode.nvim"
+  use "ellisonleao/gruvbox.nvim"
 
   use "romgrk/fzy-lua-native"
   -- icons for Popupmenu.
   use "gelguy/wilder.nvim"
 
   -- debugger.
-  use "ravenxrz/DAPInstall.nvim"   -- help us install several debuggers
+  use "ravenxrz/DAPInstall.nvim" -- help us install several debuggers
   use "ravenxrz/nvim-dap"
   use "theHamsta/nvim-dap-virtual-text"
   use "rcarriga/nvim-dap-ui"
   use "nvim-telescope/telescope-dap.nvim"
-  use "mfussenegger/nvim-dap-python"    -- debug python
+  use "mfussenegger/nvim-dap-python" -- debug python
   use { "leoluz/nvim-dap-go", module = "dap-go" } -- debug golang
   use { "jbyuki/one-small-step-for-vimkind", module = "osv" } -- debug any Lua code running in a Neovim instance
 

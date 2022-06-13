@@ -2,10 +2,10 @@ local M = {}
 
 M.setup = function()
   local signs = {
-    { name = "DiagnosticSignError", text = "" },
-    { name = "DiagnosticSignWarn", text = "" },
-    { name = "DiagnosticSignHint", text = "" },
-    { name = "DiagnosticSignInfo", text = "" },
+    { name = "DiagnosticSignError", text = " " },
+    { name = "DiagnosticSignWarn", text = " " },
+    { name = "DiagnosticSignHint", text = " " },
+    { name = "DiagnosticSignInfo", text = " " },
   }
 
   for _, sign in ipairs(signs) do
@@ -15,7 +15,7 @@ M.setup = function()
   local config = {
     -- virtual text
     virtual_text = {
-      prefix = ""
+      prefix = "■"
     },
     -- show signs
     signs = {
@@ -85,7 +85,7 @@ local function lsp_highlight_document(client)
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
-    ]],
+    ]] ,
       false
     )
   end
