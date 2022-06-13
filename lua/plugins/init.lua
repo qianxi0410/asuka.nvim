@@ -44,6 +44,15 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim"
   use "nvim-lua/plenary.nvim"
 
+  use({
+    "mfussenegger/nvim-lint",
+    config = function()
+      require("lint").linters_by_ft = {
+        go = { "golangcilint" },
+      }
+    end,
+  })
+
   -- golang.
   use {
     "fatih/vim-go",

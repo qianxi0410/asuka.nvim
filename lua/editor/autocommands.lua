@@ -36,5 +36,6 @@ vim.cmd [[
 --   autocmd BufWritePre * lua vim.lsp.buf.formatting()
 -- augroup end
 
+vim.cmd [[autocmd BufWritePost <buffer> lua require('lint').try_lint()]]
 -- format on save
 vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
