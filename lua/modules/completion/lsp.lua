@@ -64,7 +64,6 @@ for _, server in ipairs(mason_lsp.get_installed_servers()) do
 	elseif server == "sumneko_lua" then
 		nvim_lsp.sumneko_lua.setup({
 			capabilities = capabilities,
-			on_attach = custom_attach,
 			settings = {
 				Lua = {
 					diagnostics = { globals = { "vim", "packer_plugins" } },
@@ -86,7 +85,6 @@ for _, server in ipairs(mason_lsp.get_installed_servers()) do
 		nvim_lsp.clangd.setup({
 			capabilities = copy_capabilities,
 			single_file_support = true,
-			on_attach = custom_attach,
 			cmd = {
 				"clangd",
 				"--background-index",
@@ -125,7 +123,6 @@ for _, server in ipairs(mason_lsp.get_installed_servers()) do
 		nvim_lsp.jsonls.setup({
 			flags = { debounce_text_changes = 500 },
 			capabilities = capabilities,
-			on_attach = custom_attach,
 			settings = {
 				json = {
 					-- Schemas https://www.schemastore.org
@@ -181,7 +178,6 @@ for _, server in ipairs(mason_lsp.get_installed_servers()) do
 	else
 		nvim_lsp[server].setup({
 			capabilities = capabilities,
-			on_attach = custom_attach,
 		})
 	end
 end
@@ -199,7 +195,6 @@ nvim_lsp.html.setup({
 	single_file_support = true,
 	flags = { debounce_text_changes = 500 },
 	capabilities = capabilities,
-	on_attach = custom_attach,
 })
 
 local efmls = require("efmls-configs")
@@ -207,7 +202,6 @@ local efmls = require("efmls-configs")
 -- Init `efm-langserver` here.
 
 efmls.init({
-	on_attach = custom_attach,
 	capabilities = capabilities,
 	init_options = { documentFormatting = true, codeAction = true },
 })
