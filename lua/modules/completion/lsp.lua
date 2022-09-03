@@ -1,6 +1,5 @@
 local formatting = require("modules.completion.formatting")
 
-vim.cmd([[packadd lsp_signature.nvim]])
 vim.cmd([[packadd lspsaga.nvim]])
 vim.cmd([[packadd cmp-nvim-lsp]])
 vim.cmd([[packadd nvim-navic]])
@@ -23,19 +22,6 @@ mason_lsp.setup({
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
-
-local function custom_attach(client, bufnr)
-	require("lsp_signature").on_attach({
-		bind = true,
-		use_lspsaga = false,
-		floating_window = true,
-		fix_pos = true,
-		hint_enable = true,
-		hi_parameter = "Search",
-		handler_opts = { "double" },
-	})
-	require("nvim-navic").attach(client, bufnr)
-end
 
 local function switch_source_header_splitcmd(bufnr, splitcmd)
 	bufnr = nvim_lsp.util.validate_bufnr(bufnr)
@@ -66,20 +52,12 @@ end
 for _, server in ipairs(mason_lsp.get_installed_servers()) do
 	if server == "gopls" then
 		nvim_lsp.gopls.setup({
-			on_attach = custom_attach,
 			flags = { debounce_text_changes = 500 },
 			capabilities = capabilities,
 			cmd = { "gopls", "-remote=auto" },
 			settings = {
 				gopls = {
 					gofumpt = true,
-					usePlaceholders = true,
-					analyses = {
-						nilness = true,
-						shadow = true,
-						unusedparams = true,
-						unusewrites = true,
-					},
 				},
 			},
 		})

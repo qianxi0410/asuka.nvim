@@ -23,7 +23,6 @@ completion["glepnir/lspsaga.nvim"] = {
 	after = "nvim-lspconfig",
 	config = conf.lspsaga,
 }
-completion["ray-x/lsp_signature.nvim"] = { opt = true, after = "nvim-lspconfig" }
 completion["hrsh7th/nvim-cmp"] = {
 	config = conf.cmp,
 	event = "InsertEnter",
@@ -54,6 +53,6 @@ completion["windwp/nvim-autopairs"] = {
 	after = "nvim-cmp",
 	config = conf.autopairs,
 }
-completion["github/copilot.vim"] = { opt = true, cmd = "Copilot" }
+completion["github/copilot.vim"] = { event = "BufReadPost", cmd = "Copilot" }
 
 return completion

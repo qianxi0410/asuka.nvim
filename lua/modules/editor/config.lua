@@ -67,39 +67,6 @@ function config.nvim_treesitter()
 	end
 end
 
-function config.illuminate()
-	-- Use background for "Visual" as highlight for words. Change this behavior here!
-	if vim.api.nvim_get_hl_by_name("Visual", true).background then
-		local illuminate_bg = string.format("#%06x", vim.api.nvim_get_hl_by_name("Visual", true).background)
-
-		vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = illuminate_bg })
-		vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = illuminate_bg })
-		vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = illuminate_bg })
-	end
-
-	require("illuminate").configure({
-		providers = {
-			"lsp",
-			"treesitter",
-			"regex",
-		},
-		delay = 100,
-		filetypes_denylist = {
-			"alpha",
-			"dashboard",
-			"DoomInfo",
-			"fugitive",
-			"help",
-			"norg",
-			"NvimTree",
-			"Outline",
-			"packer",
-			"toggleterm",
-		},
-		under_cursor = false,
-	})
-end
-
 function config.nvim_comment()
 	require("nvim_comment").setup({
 		hook = function()
@@ -418,23 +385,6 @@ function config.tabout()
 		},
 		exclude = {},
 	})
-end
-
-function config.imselect()
-	-- fcitx5 need a manual config
-	if vim.fn.executable("fcitx5-remote") == 1 then
-		vim.cmd([[
-		let g:im_select_get_im_cmd = ["fcitx5-remote"]
-		let g:im_select_default = '1'
-		let g:ImSelectSetImCmd = {
-			\ key ->
-			\ key == 1 ? ['fcitx5-remote', '-c'] :
-			\ key == 2 ? ['fcitx5-remote', '-o'] :
-			\ key == 0 ? ['fcitx5-remote', '-c'] :
-			\ execute("throw 'invalid im key'")
-			\ }
-			]])
-	end
 end
 
 function config.better_escape()

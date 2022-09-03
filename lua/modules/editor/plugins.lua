@@ -2,11 +2,6 @@ local editor = {}
 local conf = require("modules.editor.config")
 
 editor["junegunn/vim-easy-align"] = { opt = true, cmd = "EasyAlign" }
-editor["RRethy/vim-illuminate"] = {
-	opt = true,
-	event = "BufReadPost",
-	config = conf.illuminate,
-}
 editor["terrortylor/nvim-comment"] = {
 	opt = false,
 	config = conf.nvim_comment,
@@ -118,11 +113,6 @@ editor["abecodes/tabout.nvim"] = {
 editor["sindrets/diffview.nvim"] = {
 	opt = true,
 	cmd = { "DiffviewOpen" },
-}
-editor["brglng/vim-im-select"] = {
-	opt = true,
-	event = "BufReadPost",
-	config = conf.imselect,
 }
 editor["luukvbaal/stabilize.nvim"] = {
 	opt = true,
