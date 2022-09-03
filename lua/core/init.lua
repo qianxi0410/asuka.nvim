@@ -108,7 +108,7 @@ local load_core = function()
 	pack.load_compile()
 
 	-- vim.cmd([[set background=light]])
-	vim.cmd([[colorscheme catppuccin]])
+	vim.cmd([[colorscheme gruvbox]])
 end
 
 load_core()
