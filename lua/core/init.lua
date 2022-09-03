@@ -108,7 +108,7 @@ local load_core = function()
 	pack.load_compile()
 
 	-- vim.cmd([[set background=light]])
-	vim.cmd([[colorscheme gruvbox]])
+	vim.cmd([[colorscheme vscode]])
 end
 
 load_core()
