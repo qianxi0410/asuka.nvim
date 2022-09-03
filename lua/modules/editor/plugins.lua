@@ -22,10 +22,6 @@ editor["nvim-treesitter/nvim-treesitter-textobjects"] = {
 	after = "nvim-treesitter",
 	commit = "761e283a8e3ab80ee5ec8daf4f19d92d23ee37e4",
 }
-editor["p00f/nvim-ts-rainbow"] = {
-	opt = true,
-	after = "nvim-treesitter",
-}
 editor["JoosepAlviste/nvim-ts-context-commentstring"] = {
 	opt = true,
 	after = "nvim-treesitter",
