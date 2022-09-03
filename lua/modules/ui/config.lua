@@ -131,13 +131,13 @@ function config.notify()
 	local notify = require("notify")
 	notify.setup({
 		---@usage Animation style one of { "fade", "slide", "fade_in_slide_out", "static" }
-		stages = "slide",
+		stages = "fade",
 		---@usage Function called when a new window is opened, use for changing win settings/config
 		on_open = nil,
 		---@usage Function called when a window is closed
 		on_close = nil,
 		---@usage timeout for notifications in ms, default 5000
-		timeout = 2000,
+		timeout = 1000,
 		-- Render function for notifications. See notify-render()
 		render = "default",
 		---@usage highlight behind the window for stages that change opacity
@@ -646,58 +646,6 @@ function config.gitsigns()
 		word_diff = false,
 		diff_opts = { internal = true },
 	})
-end
-
-function config.indent_blankline()
-	require("indent_blankline").setup({
-		char = "│",
-		show_first_indent_level = true,
-		filetype_exclude = {
-			"startify",
-			"dashboard",
-			"dotooagenda",
-			"log",
-			"fugitive",
-			"gitcommit",
-			"packer",
-			"vimwiki",
-			"markdown",
-			"json",
-			"txt",
-			"vista",
-			"help",
-			"todoist",
-			"NvimTree",
-			"peekaboo",
-			"git",
-			"TelescopePrompt",
-			"undotree",
-			"flutterToolsOutline",
-			"", -- for all buffers without a file type
-		},
-		buftype_exclude = { "terminal", "nofile" },
-		show_trailing_blankline_indent = false,
-		show_current_context = true,
-		context_patterns = {
-			"class",
-			"function",
-			"method",
-			"block",
-			"list_literal",
-			"selector",
-			"^if",
-			"^table",
-			"if_statement",
-			"while",
-			"for",
-			"type",
-			"var",
-			"import",
-		},
-		space_char_blankline = " ",
-	})
-	-- because lazy load indent-blankline so need readd this autocmd
-	vim.cmd("autocmd CursorMoved * IndentBlanklineRefresh")
 end
 
 function config.scrollview()
