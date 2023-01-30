@@ -23,7 +23,7 @@ settings["load_big_files_faster"] = true
 settings["palette_overwrite"] = {}
 
 -- Set the colorscheme to use here.
--- Available values are: `catppuccin`, `edge`, `nord`.
+-- Available values are: `catppuccin`, `codedark`.
 settings["colorscheme"] = "codedark"
 
 -- Set background color to use here.
