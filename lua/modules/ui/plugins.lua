@@ -14,6 +14,9 @@ ui["catppuccin/nvim"] = {
 	name = "catppuccin",
 	config = conf.catppuccin,
 }
+ui["morhetz/gruvbox"] = {
+	lazy = false,
+}
 ui["rcarriga/nvim-notify"] = {
 	lazy = true,
 	event = "VeryLazy",
