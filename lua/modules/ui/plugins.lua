@@ -1,20 +1,12 @@
 local ui = {}
 local conf = require("modules.ui.config")
 
-ui["shaunsingh/nord.nvim"] = {
-	lazy = true,
-	config = conf.nord,
-}
-ui["sainnhe/edge"] = {
-	lazy = true,
-	config = conf.edge,
-}
 ui["catppuccin/nvim"] = {
 	lazy = true,
 	name = "catppuccin",
 	config = conf.catppuccin,
 }
-ui["morhetz/gruvbox"] = {
+ui["tomasiser/vim-code-dark"] = {
 	lazy = false,
 }
 ui["rcarriga/nvim-notify"] = {

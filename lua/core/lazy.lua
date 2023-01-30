@@ -75,7 +75,7 @@ function Lazy:load_lazy()
 		install = {
 			-- install missing plugins on startup. This doesn't increase startup time.
 			missing = true,
-			colorscheme = { "gruvbox" },
+			colorscheme = { "codedark" },
 		},
 		ui = {
 			-- a number <1 is a percentage., >1 is a fixed size

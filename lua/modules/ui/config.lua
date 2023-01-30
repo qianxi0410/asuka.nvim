@@ -116,24 +116,6 @@ function config.alpha()
 	})
 end
 
-function config.edge()
-	vim.g.edge_style = "aura"
-	vim.g.edge_enable_italic = 1
-	vim.g.edge_disable_italic_comment = 1
-	vim.g.edge_show_eob = 1
-	vim.g.edge_better_performance = 1
-	vim.g.edge_transparent_background = 1
-end
-
-function config.nord()
-	vim.g.nord_contrast = true
-	vim.g.nord_borders = false
-	vim.g.nord_cursorline_transparent = true
-	vim.g.nord_disable_background = false
-	vim.g.nord_enable_sidebar_background = true
-	vim.g.nord_italic = true
-end
-
 function config.catppuccin()
 	local transparent_background = false -- Set background transparency here!
 
@@ -539,7 +521,7 @@ function config.lualine()
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
-			theme = "gruvbox",
+			theme = "codedark",
 			disabled_filetypes = {},
 			component_separators = "|",
 			section_separators = { left = "", right = "" },
