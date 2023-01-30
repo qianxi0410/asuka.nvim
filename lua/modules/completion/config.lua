@@ -101,7 +101,6 @@ function config.lspsaga()
 			},
 		},
 		symbol_in_winbar = {
-			in_custom = false,
 			enable = false,
 			separator = " " .. icons.ui.Separator,
 			hide_keyword = true,
