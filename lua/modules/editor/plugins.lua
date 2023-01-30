@@ -122,10 +122,10 @@ editor["LunarVim/bigfile.nvim"] = {
 }
 
 -- only for fcitx5 user who uses non-English language during coding
--- editor["brglng/vim-im-select"] = {
--- 	lazy = true,
--- 	event = "BufReadPost",
--- 	config = conf.imselect,
--- }
+editor["brglng/vim-im-select"] = {
+	lazy = true,
+	event = "BufReadPost",
+	config = conf.imselect,
+}
 
 return editor

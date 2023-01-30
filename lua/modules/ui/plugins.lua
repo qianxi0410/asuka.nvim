@@ -10,7 +10,7 @@ ui["sainnhe/edge"] = {
 	config = conf.edge,
 }
 ui["catppuccin/nvim"] = {
-	lazy = false,
+	lazy = true,
 	name = "catppuccin",
 	config = conf.catppuccin,
 }
