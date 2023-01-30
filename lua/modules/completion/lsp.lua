@@ -94,7 +94,8 @@ for _, server in ipairs(mason_lsp.get_installed_servers()) do
 			cmd = { "gopls", "-remote=auto" },
 			settings = {
 				gopls = {
-					usePlaceholders = true,
+					gofumpt = true,
+					usePlaceholders = false,
 					analyses = {
 						nilness = true,
 						shadow = true,
