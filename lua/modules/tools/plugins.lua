@@ -47,4 +47,10 @@ tools["mrjones2014/legendary.nvim"] = {
 	},
 }
 
+-- coding time
+tools["wakatime/vim-wakatime"] = {
+	lazy = true,
+	event = "BufReadPost",
+}
+
 return tools

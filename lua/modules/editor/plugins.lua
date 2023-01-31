@@ -128,10 +128,4 @@ editor["brglng/vim-im-select"] = {
 	config = conf.imselect,
 }
 
--- coding time
-editor["wakatime/vim-wakatime"] = {
-	lazy = true,
-	event = "BufReadPost",
-}
-
 return editor
