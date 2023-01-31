@@ -345,25 +345,9 @@ function config.catppuccin()
 end
 
 function config.gruvbox()
-	require("gruvbox").setup({
-		undercurl = false,
-		underline = false,
-		bold = false,
-		italic = true,
-		strikethrough = true,
-		invert_selection = false,
-		invert_signs = false,
-		invert_tabline = false,
-		invert_intend_guides = false,
-		inverse = true, -- invert background for search, diffs, statuslines and errors
-		contrast = "hard", -- can be "hard", "soft" or empty string
-		palette_overrides = {},
-		overrides = {
-			SignColumn = { bg = "none" },
-		},
-		dim_inactive = false,
-		transparent_mode = false,
-	})
+	local G = vim.g
+	G.gruvbox_material_background = "hard"
+	G.gruvbox_material_diagnostic_virtual_text = "colored"
 end
 
 function config.neodim()

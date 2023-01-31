@@ -6,7 +6,7 @@ ui["catppuccin/nvim"] = {
 	name = "catppuccin",
 	config = conf.catppuccin,
 }
-ui["ellisonleao/gruvbox.nvim"] = {
+ui["sainnhe/gruvbox-material"] = {
 	lazy = false,
 	config = conf.gruvbox,
 }
