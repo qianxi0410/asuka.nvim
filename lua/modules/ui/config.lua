@@ -344,6 +344,28 @@ function config.catppuccin()
 	})
 end
 
+function config.gruvbox()
+	require("gruvbox").setup({
+		undercurl = false,
+		underline = false,
+		bold = false,
+		italic = true,
+		strikethrough = true,
+		invert_selection = false,
+		invert_signs = false,
+		invert_tabline = false,
+		invert_intend_guides = false,
+		inverse = true, -- invert background for search, diffs, statuslines and errors
+		contrast = "hard", -- can be "hard", "soft" or empty string
+		palette_overrides = {},
+		overrides = {
+			SignColumn = { bg = "none" },
+		},
+		dim_inactive = false,
+		transparent_mode = false,
+	})
+end
+
 function config.neodim()
 	local blend_color = require("modules.utils").hl_to_rgb("Normal", true)
 
@@ -504,7 +526,7 @@ function config.lualine()
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
-			theme = "codedark",
+			theme = "gruvbox",
 			disabled_filetypes = {},
 			component_separators = "|",
 			section_separators = { left = "", right = "" },

@@ -23,8 +23,8 @@ settings["load_big_files_faster"] = true
 settings["palette_overwrite"] = {}
 
 -- Set the colorscheme to use here.
--- Available values are: `catppuccin`, `codedark`.
-settings["colorscheme"] = "codedark"
+-- Available values are: `catppuccin`, `gruvbox`.
+settings["colorscheme"] = "gruvbox"
 
 -- Set background color to use here.
 -- Useful for when you want to use a colorscheme that has a light and dark variant like `edge`.

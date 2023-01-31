@@ -6,8 +6,9 @@ ui["catppuccin/nvim"] = {
 	name = "catppuccin",
 	config = conf.catppuccin,
 }
-ui["tomasiser/vim-code-dark"] = {
+ui["ellisonleao/gruvbox.nvim"] = {
 	lazy = false,
+	config = conf.gruvbox,
 }
 ui["rcarriga/nvim-notify"] = {
 	lazy = true,
