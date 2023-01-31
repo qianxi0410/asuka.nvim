@@ -65,6 +65,7 @@ function Lazy:load_lazy()
 	self:load_plugins()
 
 	local clone_prefix = use_ssh and "git@github.com:%s.git" or "https://github.com/%s.git"
+	local colorscheme = require("core.settings").colorscheme
 	local lazy_settings = {
 		root = data_dir .. "lazy", -- directory where plugins will be installed
 		git = {
@@ -75,7 +76,7 @@ function Lazy:load_lazy()
 		install = {
 			-- install missing plugins on startup. This doesn't increase startup time.
 			missing = true,
-			colorscheme = { "gruvbox" },
+			colorscheme = { colorscheme },
 		},
 		ui = {
 			-- a number <1 is a percentage., >1 is a fixed size

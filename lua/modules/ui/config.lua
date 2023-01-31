@@ -524,10 +524,11 @@ function config.lualine()
 		return ""
 	end
 
+	local colorscheme = require("core.settings").colorscheme
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
-			theme = "gruvbox",
+			theme = colorscheme,
 			disabled_filetypes = {},
 			component_separators = "|",
 			section_separators = { left = "", right = "" },
