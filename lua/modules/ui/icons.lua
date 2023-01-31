@@ -139,6 +139,12 @@ local data = {
 		Information_alt = "",
 		Question_alt = "",
 		Hint_alt = "",
+		-- word version
+		Error_w = "E",
+		Warning_w = "W",
+		Information_w = "I",
+		Question_w = "?",
+		Hint_w = "H",
 	},
 	misc = {
 		Campass = "",
