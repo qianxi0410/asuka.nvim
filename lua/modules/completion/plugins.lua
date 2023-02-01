@@ -6,7 +6,7 @@ completion["neovim/nvim-lspconfig"] = {
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = conf.nvim_lsp,
 	dependencies = {
-		{ "creativenull/efmls-configs-nvim" },
+		{ "jose-elias-alvarez/null-ls.nvim", dependencies = "nvim-lua/plenary.nvim" },
 		{ "williamboman/mason.nvim" },
 		{ "williamboman/mason-lspconfig.nvim" },
 		{ "WhoIsSethDaniel/mason-tool-installer.nvim", config = conf.mason_install },
