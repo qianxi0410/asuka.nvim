@@ -4,5 +4,26 @@
 
 ```bash
 git clone https://github.com/qianxi0410/.nvim ~/.config/nvim
-nvim +PackerSync
 ```
+
+## 预览
+
+![首页](./img/index.png)
+
+![代码界面](./img/code.png)
+
+![treesitter](./img/treesitter.png)
+
+![补全](./img/completion.png)
+
+## 解决方案
+
+[lazy.nvim](https://github.com/folke/lazy.nvim) + [nvim-lsp](https://github.com/neovim/nvim-lspconfig) + [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+
+启动速度为：
+
+![profile](./img/profile.png)
+
+## 致谢
+
+这是来自[ayamir/nvimdots](https://github.com/ayamir/nvimdots)一份 fork，大多的配置都自他而来
