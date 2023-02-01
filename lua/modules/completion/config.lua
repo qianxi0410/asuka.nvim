@@ -212,7 +212,7 @@ function config.cmp()
 			},
 		},
 		formatting = {
-			fields = { "abbr", "kind", "menu" },
+			fields = { "kind", "abbr", "menu" },
 			format = function(entry, vim_item)
 				local kind = lspkind.cmp_format({
 					mode = "symbol_text",
