@@ -176,19 +176,6 @@ function config.cmp()
 		return vim.api.nvim_replace_termcodes(str, true, true, true)
 	end
 
-	local border = function(hl)
-		return {
-			{ "╭", hl },
-			{ "─", hl },
-			{ "╮", hl },
-			{ "│", hl },
-			{ "╯", hl },
-			{ "─", hl },
-			{ "╰", hl },
-			{ "│", hl },
-		}
-	end
-
 	local cmp_window = require("cmp.utils.window")
 
 	cmp_window.info_ = cmp_window.info
@@ -204,14 +191,9 @@ function config.cmp()
 
 	cmp.setup({
 		window = {
-			completion = {
-				border = border("Normal"),
-				max_width = 80,
-				max_height = 20,
-			},
-			documentation = {
-				border = border("CmpDocBorder"),
-			},
+			-- don't need border
+			completion = {},
+			documentation = {},
 		},
 		sorting = {
 			priority_weight = 2,
