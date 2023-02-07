@@ -1,6 +1,4 @@
 return function()
-	local formatting = require("completion.formatting")
-
 	local nvim_lsp = require("lspconfig")
 	local mason = require("mason")
 	local mason_lspconfig = require("mason-lspconfig")
@@ -36,7 +34,6 @@ return function()
 		ensure_installed = {
 			"bashls",
 			"clangd",
-			"efm",
 			"gopls",
 			"pyright",
 			"sumneko_lua",
@@ -85,10 +82,6 @@ return function()
 			nvim_lsp.clangd.setup(final_opts)
 		end,
 
-		efm = function()
-			-- Do not setup efm
-		end,
-
 		gopls = function()
 			local _opts = require("completion.servers.gopls")
 			local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
@@ -114,63 +107,48 @@ return function()
 		nvim_lsp.html.setup(final_opts)
 	end
 
-	local efmls = require("efmls-configs")
+	-- null-ls
+	local null_ls = require("null-ls")
+	local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-	-- Init `efm-langserver` here.
+	local lsp_formatting = function(bufnr)
+		vim.lsp.buf.format({
+			filter = function(client)
+				-- only use null-ls for formatting
+				return client.name == "null-ls"
+			end,
+			bufnr = bufnr,
+		})
+	end
 
-	efmls.init({
-		on_attach = opts.on_attach,
-		capabilities = capabilities,
-		init_options = { documentFormatting = true, codeAction = true },
+	null_ls.setup({
+		sources = {
+			-- formatting see: https://github.com/jose-elias-alvarez/null-ls.nvim
+			null_ls.builtins.formatting.stylua,
+			null_ls.builtins.formatting.clang_format,
+			null_ls.builtins.formatting.eslint, -- prefer to use eslint to format
+			null_ls.builtins.formatting.shfmt,
+			null_ls.builtins.formatting.rustfmt,
+			null_ls.builtins.formatting.gofumpt,
+			null_ls.builtins.formatting.goimports,
+			null_ls.builtins.formatting.golines,
+			null_ls.builtins.formatting.prettier,
+
+			null_ls.builtins.diagnostics.eslint,
+			null_ls.builtins.diagnostics.golangci_lint,
+			-- null_ls.builtins.diagnostics.cspell,
+		},
+		on_attach = function(client, bufnr)
+			if client.supports_method("textDocument/formatting") then
+				vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+				vim.api.nvim_create_autocmd("BufWritePre", {
+					group = augroup,
+					buffer = bufnr,
+					callback = function()
+						lsp_formatting(bufnr)
+					end,
+				})
+			end
+		end,
 	})
-
-	-- Require `efmls-configs-nvim`'s config here
-
-	local vint = require("efmls-configs.linters.vint")
-	local eslint = require("efmls-configs.linters.eslint")
-	local flake8 = require("efmls-configs.linters.flake8")
-
-	local black = require("efmls-configs.formatters.black")
-	local stylua = require("efmls-configs.formatters.stylua")
-	local prettier = require("efmls-configs.formatters.prettier")
-	local shfmt = require("efmls-configs.formatters.shfmt")
-
-	-- Add your own config for formatter and linter here
-
-	-- local rustfmt = require("completion.efm.formatters.rustfmt")
-	local clangfmt = require("completion.efm.formatters.clangfmt")
-
-	-- Override default config here
-
-	flake8 = vim.tbl_extend("force", flake8, {
-		prefix = "flake8: max-line-length=160, ignore F403 and F405",
-		lintStdin = true,
-		lintIgnoreExitCode = true,
-		lintFormats = { "%f:%l:%c: %t%n%n%n %m" },
-		lintCommand = "flake8 --max-line-length 160 --extend-ignore F403,F405 --format '%(path)s:%(row)d:%(col)d: %(code)s %(code)s %(text)s' --stdin-display-name ${INPUT} -",
-	})
-
-	-- Setup formatter and linter for efmls here
-
-	efmls.setup({
-		vim = { formatter = vint },
-		lua = { formatter = stylua },
-		c = { formatter = clangfmt },
-		cpp = { formatter = clangfmt },
-		python = { formatter = black },
-		vue = { formatter = prettier },
-		typescript = { formatter = prettier, linter = eslint },
-		javascript = { formatter = prettier, linter = eslint },
-		typescriptreact = { formatter = prettier, linter = eslint },
-		javascriptreact = { formatter = prettier, linter = eslint },
-		yaml = { formatter = prettier },
-		html = { formatter = prettier },
-		css = { formatter = prettier },
-		scss = { formatter = prettier },
-		sh = { formatter = shfmt },
-		markdown = { formatter = prettier },
-		-- rust = {formatter = rustfmt},
-	})
-
-	formatting.configure_format_on_save()
 end

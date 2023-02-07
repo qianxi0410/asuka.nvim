@@ -56,7 +56,7 @@ return function()
 				cwd = "~" .. cwd:sub(#home + 1)
 			end
 		end
-		return icons.ui.RootFolderOpened .. cwd
+		return cwd
 	end
 
 	local mini_sections = {
@@ -104,7 +104,7 @@ return function()
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
-			theme = "catppuccin",
+			theme = "gruvbox",
 			disabled_filetypes = {},
 			component_separators = "|",
 			section_separators = { left = "", right = "" },
@@ -112,7 +112,7 @@ return function()
 		sections = {
 			lualine_a = { { "mode" } },
 			lualine_b = { { "branch" }, { "diff", source = diff_source } },
-			lualine_c = { lspsaga_symbols },
+			lualine_c = {},
 			lualine_x = {
 				{ escape_status },
 				{

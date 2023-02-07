@@ -1,5 +1,9 @@
 local tool = {}
 
+tool["wakatime/vim-wakatime"] = {
+	lazy = true,
+	event = "BufReadPost",
+}
 tool["tpope/vim-fugitive"] = {
 	lazy = true,
 	cmd = { "Git", "G" },
@@ -10,11 +14,11 @@ tool["folke/which-key.nvim"] = {
 	config = require("tool.which-key"),
 }
 -- only for fcitx5 user who uses non-English language during coding
--- tool["brglng/vim-im-select"] = {
--- 	lazy = true,
--- 	event = "BufReadPost",
--- 	config = require("tool.imselect"),
--- }
+tool["brglng/vim-im-select"] = {
+	lazy = true,
+	event = "BufReadPost",
+	config = require("tool.imselect"),
+}
 tool["nvim-tree/nvim-tree.lua"] = {
 	lazy = true,
 	cmd = {

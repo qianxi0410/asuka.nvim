@@ -1,5 +1,9 @@
 local ui = {}
 
+ui["sainnhe/gruvbox-material"] = {
+	lazy = false,
+	config = require("ui.gruvbox"),
+}
 ui["goolord/alpha-nvim"] = {
 	lazy = true,
 	event = "BufWinEnter",
@@ -14,10 +18,6 @@ ui["catppuccin/nvim"] = {
 	lazy = false,
 	name = "catppuccin",
 	config = require("ui.catppuccin"),
-}
-ui["sainnhe/edge"] = {
-	lazy = true,
-	config = require("ui.edge"),
 }
 ui["j-hui/fidget.nvim"] = {
 	lazy = true,
@@ -48,10 +48,6 @@ ui["karb94/neoscroll.nvim"] = {
 	lazy = true,
 	event = "BufReadPost",
 	config = require("ui.neoscroll"),
-}
-ui["shaunsingh/nord.nvim"] = {
-	lazy = true,
-	config = require("ui.nord"),
 }
 ui["rcarriga/nvim-notify"] = {
 	lazy = true,
