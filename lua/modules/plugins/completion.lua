@@ -1,24 +1,33 @@
 local completion = {}
-local conf = require("modules.completion.config")
 
 completion["neovim/nvim-lspconfig"] = {
 	lazy = true,
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
-	config = conf.nvim_lsp,
+	config = require("completion.lsp"),
 	dependencies = {
 		{ "jose-elias-alvarez/null-ls.nvim", dependencies = "nvim-lua/plenary.nvim" },
 		{ "williamboman/mason.nvim" },
 		{ "williamboman/mason-lspconfig.nvim" },
-		{ "WhoIsSethDaniel/mason-tool-installer.nvim", config = conf.mason_install },
-		{ "glepnir/lspsaga.nvim", config = conf.lspsaga },
+		{
+			"WhoIsSethDaniel/mason-tool-installer.nvim",
+			config = require("completion.mason-tool-installer"),
+		},
+		{
+			"glepnir/lspsaga.nvim",
+			config = require("completion.lspsaga"),
+		},
 		{ "ray-x/lsp_signature.nvim" },
 	},
 }
 completion["hrsh7th/nvim-cmp"] = {
-	config = conf.cmp,
 	event = "InsertEnter",
+	config = require("completion.cmp"),
 	dependencies = {
-		{ "L3MON4D3/LuaSnip", config = conf.luasnip, dependencies = { "rafamadriz/friendly-snippets" } },
+		{
+			"L3MON4D3/LuaSnip",
+			dependencies = { "rafamadriz/friendly-snippets" },
+			config = require("completion.luasnip"),
+		},
 		{ "onsails/lspkind.nvim" },
 		{ "lukas-reineke/cmp-under-comparator" },
 		{ "saadparwaiz1/cmp_luasnip" },
@@ -29,20 +38,21 @@ completion["hrsh7th/nvim-cmp"] = {
 		{ "f3fora/cmp-spell" },
 		{ "hrsh7th/cmp-buffer" },
 		{ "kdheepak/cmp-latex-symbols" },
-		{ "windwp/nvim-autopairs", config = conf.autopairs },
-		-- { "tzachar/cmp-tabnine", build = "./install.sh", config = conf.tabnine },
+		{
+			"windwp/nvim-autopairs",
+			config = require("completion.autopairs"),
+		},
+		-- { "tzachar/cmp-tabnine", build = "./install.sh", config = require("completion.tabnine") },
 	},
 }
 completion["zbirenbaum/copilot.lua"] = {
 	cmd = "Copilot",
 	event = "InsertEnter",
-	config = conf.copilot,
+	config = require("completion.copilot"),
 	dependencies = {
 		{
 			"zbirenbaum/copilot-cmp",
-			config = function()
-				require("copilot_cmp").setup({})
-			end,
+			config = require("completion.copilot-cmp"),
 		},
 	},
 }
