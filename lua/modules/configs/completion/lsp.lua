@@ -31,13 +31,9 @@ return function()
 		},
 	})
 	mason_lspconfig.setup({
-		ensure_installed = {
-			"bashls",
-			"clangd",
-			"gopls",
-			"pyright",
-			"lua_ls",
-		},
+		-- NOTE: use the lsp names in nvim-lspconfig
+		-- https://github.com/williamboman/mason-lspconfig.nvim/blob/main/lua/mason-lspconfig/mappings/server.lua
+		ensure_installed = require("core.settings").lsp,
 	})
 
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -88,6 +84,12 @@ return function()
 			nvim_lsp.gopls.setup(final_opts)
 		end,
 
+		html = function()
+			local _opts = require("completion.servers.html")
+			local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
+			nvim_lsp.html.setup(final_opts)
+		end,
+
 		jsonls = function()
 			local _opts = require("completion.servers.jsonls")
 			local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
@@ -98,57 +100,6 @@ return function()
 			local _opts = require("completion.servers.lua_ls")
 			local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
 			nvim_lsp.lua_ls.setup(final_opts)
-		end,
-	})
-
-	if vim.fn.executable("html-languageserver") then
-		local _opts = require("completion.servers.html")
-		local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
-		nvim_lsp.html.setup(final_opts)
-	end
-
-	-- null-ls
-	local null_ls = require("null-ls")
-	local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
-	local lsp_formatting = function(bufnr)
-		vim.lsp.buf.format({
-			filter = function(client)
-				-- only use null-ls for formatting
-				return client.name == "null-ls"
-			end,
-			bufnr = bufnr,
-		})
-	end
-
-	null_ls.setup({
-		sources = {
-			-- formatting see: https://github.com/jose-elias-alvarez/null-ls.nvim
-			null_ls.builtins.formatting.stylua,
-			null_ls.builtins.formatting.clang_format,
-			null_ls.builtins.formatting.eslint, -- prefer to use eslint to format
-			null_ls.builtins.formatting.shfmt,
-			null_ls.builtins.formatting.rustfmt,
-			null_ls.builtins.formatting.gofumpt,
-			null_ls.builtins.formatting.goimports,
-			null_ls.builtins.formatting.golines,
-			null_ls.builtins.formatting.prettier,
-
-			null_ls.builtins.diagnostics.eslint,
-			null_ls.builtins.diagnostics.golangci_lint,
-			-- null_ls.builtins.diagnostics.cspell,
-		},
-		on_attach = function(client, bufnr)
-			if client.supports_method("textDocument/formatting") then
-				vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-				vim.api.nvim_create_autocmd("BufWritePre", {
-					group = augroup,
-					buffer = bufnr,
-					callback = function()
-						lsp_formatting(bufnr)
-					end,
-				})
-			end
 		end,
 	})
 end
