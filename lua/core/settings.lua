@@ -32,7 +32,26 @@ settings["colorscheme"] = "gruvbox-material"
 -- Available values are: `dark`, `light`.
 settings["background"] = "dark"
 
--- Set the desired LSPs here.
+-- Set the command for handling external URLs here. The executable must be available on your $PATH.
+-- This entry is IGNORED on Windows and macOS, which have their default handlers builtin.
+---@type string
+settings["external_browser"] = "chrome-cli open"
+
+-- Filetypes in this list will skip lsp formatting if rhs is true
+---@type table<string, boolean>
+settings["formatter_block_list"] = {
+	lua = false, -- example
+}
+
+-- Servers in this list will skip setting formatting capabilities if rhs is true
+---@type table<string, boolean>
+settings["server_formatting_block_list"] = {
+	lua_ls = true,
+	tsserver = true,
+	clangd = true,
+}
+
+-- Set the language servers that will be installed during bootstrap here
 -- check the below link for all the supported LSPs:
 -- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/server_configurations
 settings["lsp"] = {
