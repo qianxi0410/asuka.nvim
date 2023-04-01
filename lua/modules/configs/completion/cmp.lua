@@ -53,7 +53,7 @@ return function()
 			},
 		},
 		formatting = {
-			fields = { "abbr", "kind", "menu" },
+			fields = { "abbr", "menu" },
 			format = function(entry, vim_item)
 				local kind = lspkind.cmp_format({
 					mode = "symbol_text",
@@ -62,7 +62,7 @@ return function()
 				})(entry, vim_item)
 				local strings = vim.split(kind.kind, "%s", { trimempty = true })
 				kind.kind = " " .. strings[1]
-				kind.menu = strings[2]
+				kind.menu = "[" .. strings[2] .. "]"
 				return kind
 			end,
 		},
