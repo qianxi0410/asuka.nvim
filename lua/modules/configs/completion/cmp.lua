@@ -8,19 +8,6 @@ return function()
 		return vim.api.nvim_replace_termcodes(str, true, true, true)
 	end
 
-	local border = function(hl)
-		return {
-			{ "╭", hl },
-			{ "─", hl },
-			{ "╮", hl },
-			{ "│", hl },
-			{ "╯", hl },
-			{ "─", hl },
-			{ "╰", hl },
-			{ "│", hl },
-		}
-	end
-
 	---Handling situations where LuaSnip failed to perform any jumps
 	---@param r integer @Cursor position (row) before calling LuaSnip
 	---@param c integer @Cursor position (col) before calling LuaSnip
@@ -31,7 +18,6 @@ return function()
 			fallback()
 		end
 	end)
-
 
 	local cmp_window = require("cmp.utils.window")
 
@@ -78,7 +64,7 @@ return function()
 			},
 		},
 		formatting = {
-			fields = { "abbr", "menu" },
+			fields = { "kind", "abbr", "menu" },
 			format = function(entry, vim_item)
 				local kind = lspkind.cmp_format({
 					mode = "symbol_text",
@@ -86,8 +72,8 @@ return function()
 					symbol_map = vim.tbl_deep_extend("force", icons.kind, icons.type, icons.cmp),
 				})(entry, vim_item)
 				local strings = vim.split(kind.kind, "%s", { trimempty = true })
-				kind.kind = " " .. strings[1]
-				kind.menu = "[" .. strings[2] .. "]"
+				kind.kind = strings[1]
+				-- kind.menu = "[" .. strings[2] .. "]"
 				return kind
 			end,
 		},
