@@ -8,6 +8,31 @@ return function()
 		return vim.api.nvim_replace_termcodes(str, true, true, true)
 	end
 
+	local border = function(hl)
+		return {
+			{ "╭", hl },
+			{ "─", hl },
+			{ "╮", hl },
+			{ "│", hl },
+			{ "╯", hl },
+			{ "─", hl },
+			{ "╰", hl },
+			{ "│", hl },
+		}
+	end
+
+	---Handling situations where LuaSnip failed to perform any jumps
+	---@param r integer @Cursor position (row) before calling LuaSnip
+	---@param c integer @Cursor position (col) before calling LuaSnip
+	---@param fallback function @Fallback function inherited from cmp
+	local luasnip_fallback = vim.schedule_wrap(function(r, c, fallback)
+		local _r, _c = unpack(vim.api.nvim_win_get_cursor(0))
+		if _r == r and _c == c then
+			fallback()
+		end
+	end)
+
+
 	local cmp_window = require("cmp.utils.window")
 
 	cmp_window.info_ = cmp_window.info
@@ -68,7 +93,7 @@ return function()
 		},
 		-- You can set mappings if you want
 		mapping = cmp.mapping.preset.insert({
-			["<CR>"] = cmp.mapping.confirm({ select = true }),
+			["<CR>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
 			["<C-p>"] = cmp.mapping.select_prev_item(),
 			["<C-n>"] = cmp.mapping.select_next_item(),
 			["<C-d>"] = cmp.mapping.scroll_docs(-4),
@@ -78,7 +103,9 @@ return function()
 				if cmp.visible() then
 					cmp.select_next_item()
 				elseif require("luasnip").expand_or_locally_jumpable() then
-					vim.fn.feedkeys(t("<Plug>luasnip-expand-or-jump"), "")
+					local _r, _c = unpack(vim.api.nvim_win_get_cursor(0))
+					vim.fn.feedkeys(t("<Plug>luasnip-expand-or-jump"))
+					luasnip_fallback(_r, _c, fallback)
 				else
 					fallback()
 				end
