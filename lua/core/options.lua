@@ -41,7 +41,7 @@ local function load_options()
 		jumpoptions = "stack",
 		laststatus = 2,
 		linebreak = true,
-		list = true,
+		-- list = true,
 		-- listchars = "tab:»·,nbsp:+,trail:·,extends:→,precedes:←",
 		magic = true,
 		mousescroll = "ver:3,hor:6",

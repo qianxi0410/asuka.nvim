@@ -1,7 +1,7 @@
 return function()
 	require("indent_blankline").setup({
 		char = "│",
-		show_first_indent_level = true,
+		show_first_indent_level = false,
 		filetype_exclude = {
 			"", -- for all buffers without a file type
 			"NvimTree",
