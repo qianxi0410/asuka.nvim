@@ -37,6 +37,7 @@ local data = {
 		Macro = "",
 		Comment = "",
 		KeywordFunction = "",
+		VariableBuiltin = " ",
 	},
 	type = {
 		Array = "",

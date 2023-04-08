@@ -9,17 +9,17 @@ return function()
 			-- callback to execute once rust-analyzer is done initializing the workspace
 			-- The callback receives one parameter indicating the `health` of the server: "ok" | "warning" | "error"
 			on_initialized = function()
-				require("lsp_signature").on_attach({
-					bind = true,
-					use_lspsaga = false,
-					floating_window = true,
-					fix_pos = true,
-					hint_enable = true,
-					hi_parameter = "Search",
-					handler_opts = {
-						border = "rounded",
-					},
-				})
+				-- require("lsp_signature").on_attach({
+				-- 	bind = true,
+				-- 	use_lspsaga = false,
+				-- 	floating_window = true,
+				-- 	fix_pos = true,
+				-- 	hint_enable = true,
+				-- 	hi_parameter = "Search",
+				-- 	handler_opts = {
+				-- 		border = "rounded",
+				-- 	},
+				-- })
 			end,
 
 			-- automatically call RustReloadWorkspace when writing to a Cargo.toml file.
