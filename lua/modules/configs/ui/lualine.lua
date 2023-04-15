@@ -101,10 +101,14 @@ return function()
 		return ""
 	end
 
+	local gruvbox = require("lualine.themes.gruvbox-material")
+	gruvbox.normal.c.bg = "#282828"
+	gruvbox.normal.b.bg = "#282828"
+
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
-			theme = "gruvbox-material",
+			theme = gruvbox,
 			disabled_filetypes = {},
 			component_separators = "|",
 			section_separators = { left = "", right = "" },

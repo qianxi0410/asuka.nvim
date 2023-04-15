@@ -34,6 +34,8 @@ return function()
 			NormalNC = { bg = nil, fg = "#ebdbb2" },
 			NormalFloat = { bg = "#282828", fg = "#ebdbb2" },
 
+			MatchParen = { bg = "#3c3836" },
+
 			-- completion menu
 			Pmenu = { bg = "#282828", fg = nil },
 			CmpItemAbbr = { fg = "#d5c4a1" },
