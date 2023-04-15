@@ -25,7 +25,7 @@ settings["palette_overwrite"] = {}
 
 -- Set the colorscheme to use here.
 -- Available values are: `catppuccin`, `gruvbox`.
-settings["colorscheme"] = "gruvbox-material"
+settings["colorscheme"] = "gruvbox"
 
 -- Set background color to use here.
 -- Useful for when you want to use a colorscheme that has a light and dark variant like `edge`.

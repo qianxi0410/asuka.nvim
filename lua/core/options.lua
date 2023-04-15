@@ -46,6 +46,7 @@ local function load_options()
 		magic = true,
 		mousescroll = "ver:3,hor:6",
 		number = true,
+		numberwidth = 1,
 		previewheight = 12,
 		pumheight = 15,
 		redrawtime = 1500,
