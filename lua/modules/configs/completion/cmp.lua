@@ -62,7 +62,7 @@ return function()
 			},
 		},
 		formatting = {
-			fields = { "kind", "abbr" },
+			fields = { "kind", "abbr", "menu" },
 			format = function(entry, vim_item)
 				local kind = lspkind.cmp_format({
 					mode = "symbol_text",
@@ -71,7 +71,7 @@ return function()
 				})(entry, vim_item)
 				local strings = vim.split(kind.kind, "%s", { trimempty = true })
 				kind.kind = strings[1] .. " "
-				-- kind.menu = "  <" .. strings[2] .. ">"
+				kind.menu = strings[2]
 				return kind
 			end,
 		},
@@ -115,10 +115,10 @@ return function()
 			{ name = "nvim_lua" },
 			{ name = "luasnip" },
 			{ name = "path" },
-			-- { name = "treesitter" },
+			{ name = "treesitter" },
 			{ name = "spell" },
 			{ name = "tmux" },
-			-- { name = "orgmode" },
+			{ name = "orgmode" },
 			{ name = "buffer" },
 			{ name = "latex_symbols" },
 		},
