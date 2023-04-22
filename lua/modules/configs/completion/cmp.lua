@@ -112,12 +112,12 @@ return function()
 			{ name = "nvim_lua" },
 			{ name = "luasnip" },
 			{ name = "path" },
-			{ name = "treesitter" },
-			{ name = "spell" },
-			{ name = "tmux" },
-			{ name = "orgmode" },
+			-- { name = "treesitter" },
+			-- { name = "spell" },
+			-- { name = "tmux" },
+			-- { name = "orgmode" },
 			{ name = "buffer" },
-			{ name = "latex_symbols" },
+			-- { name = "latex_symbols" },
 		},
 	})
 end
