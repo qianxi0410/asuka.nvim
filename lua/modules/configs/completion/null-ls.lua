@@ -1,6 +1,8 @@
 return function()
 	local null_ls = require("null-ls")
 	local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+	local mason_null_ls = require("mason-null-ls")
+	local btns = null_ls.builtins
 
 	local lsp_formatting = function(bufnr)
 		vim.lsp.buf.format({
@@ -12,21 +14,28 @@ return function()
 		})
 	end
 
+	mason_null_ls.setup({
+		ensure_installed = require("core.settings").null_ls_deps,
+		automatic_installation = false,
+		automatic_setup = true,
+		handlers = {},
+	})
+
 	null_ls.setup({
 		sources = {
 			-- formatting see: https://github.com/jose-elias-alvarez/null-ls.nvim
-			null_ls.builtins.formatting.stylua,
-			null_ls.builtins.formatting.clang_format,
-			null_ls.builtins.formatting.eslint, -- prefer to use eslint to format
-			null_ls.builtins.formatting.shfmt,
-			null_ls.builtins.formatting.rustfmt,
-			null_ls.builtins.formatting.gofumpt,
-			null_ls.builtins.formatting.goimports,
-			null_ls.builtins.formatting.golines,
-			null_ls.builtins.formatting.prettier,
+			btns.formatting.stylua,
+			btns.formatting.clang_format,
+			btns.formatting.eslint, -- prefer to use eslint to format
+			btns.formatting.shfmt,
+			btns.formatting.rustfmt,
+			btns.formatting.gofumpt,
+			btns.formatting.goimports,
+			btns.formatting.golines,
+			btns.formatting.prettier,
 
-			null_ls.builtins.diagnostics.eslint,
-			null_ls.builtins.diagnostics.golangci_lint,
+			btns.diagnostics.eslint,
+			btns.diagnostics.golangci_lint,
 			-- null_ls.builtins.diagnostics.cspell,
 		},
 		on_attach = function(client, bufnr)
