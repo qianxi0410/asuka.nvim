@@ -21,7 +21,7 @@ ui["catppuccin/nvim"] = {
 }
 ui["j-hui/fidget.nvim"] = {
 	lazy = true,
-	event = "BufReadPost",
+	event = "LspAttach",
 	config = require("ui.fidget"),
 }
 ui["lewis6991/gitsigns.nvim"] = {
