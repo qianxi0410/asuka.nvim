@@ -7,6 +7,10 @@ settings["use_ssh"] = true
 -- Set it to false if there are no need to format on save.
 settings["format_on_save"] = true
 
+-- Set it to false if diagnostics virtual text is annoying for you
+---@type boolean
+settings["diagnostics_virtual_text"] = true
+
 -- Set the format disabled directories here, files under these dirs won't be formatted on save.
 settings["format_disabled_dirs"] = {
 	home .. "/format_disabled_dir_under_home",
@@ -60,9 +64,8 @@ settings["lsp"] = {
 	"html",
 	"jsonls",
 	"lua_ls",
-	"pyright",
-	-- Uncomment the below line to make sure `gopls` installed by `mason`.
-	-- "gopls",
+	"jedi_language_server",
+	"gopls",
 }
 
 -- Set the desired non-LSP sources here.
