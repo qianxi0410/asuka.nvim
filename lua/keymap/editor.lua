@@ -6,6 +6,17 @@ local map_callback = bind.map_callback
 local et = bind.escape_termcode
 
 local plug_map = {
+	-- Plugin: spectre
+	["n|<leader>S"] = map_cr("lua require('spectre').open()"):with_noremap():with_silent():with_desc("spectre: Open"),
+	["n|<leader>sw"] = map_cr("lua require('spectre').open_file_search({select_word=true})")
+		:with_noremap()
+		:with_silent()
+		:with_desc("spectre: Search current word"),
+	["v|<leader>sw"] = map_cr("lua require('spectre').open_file_search()")
+		:with_noremap()
+		:with_silent()
+		:with_desc("spectre: Search current word"),
+
 	-- Plugin: accelerate-jk
 	["n|j"] = map_callback(function()
 		return et("<Plug>(accelerated_jk_gj)")

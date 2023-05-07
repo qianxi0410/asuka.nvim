@@ -1,5 +1,10 @@
 local editor = {}
 
+editor["nvim-pack/nvim-spectre"] = {
+	lazy = true,
+	cmd = "Spectre",
+	config = require("editor.spectre"),
+}
 editor["rainbowhxch/accelerated-jk.nvim"] = {
 	lazy = true,
 	event = "VeryLazy",
