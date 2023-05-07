@@ -4,7 +4,9 @@ return function()
 	require("modules.utils").gen_alpha_hl()
 
 	dashboard.section.header.val = {
-		[[/ᐠ - ˕ -マ Ⳋ]],
+		[[ /\_/\]],
+		[[( o.o )]],
+		[[ > ^ <]],
 	}
 	dashboard.section.header.opts.hl = "AlphaHeader"
 
