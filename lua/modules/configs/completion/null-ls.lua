@@ -29,9 +29,13 @@ return function()
 			btns.formatting.eslint, -- prefer to use eslint to format
 			btns.formatting.shfmt,
 			btns.formatting.rustfmt,
-			btns.formatting.gofumpt,
 			btns.formatting.goimports,
-			btns.formatting.golines,
+			btns.formatting.golines.with({
+				extra_args = {
+					"--max-len=180",
+					"--base-formatter=gofumpt",
+				},
+			}),
 			btns.formatting.prettier,
 
 			btns.diagnostics.eslint,
