@@ -53,6 +53,7 @@ settings["server_formatting_block_list"] = {
 	lua_ls = true,
 	tsserver = true,
 	clangd = true,
+	pylsp = true,
 }
 
 -- Set the language servers that will be installed during bootstrap here
@@ -66,6 +67,7 @@ settings["lsp"] = {
 	"lua_ls",
 	"jedi_language_server",
 	"gopls",
+	"pylsp",
 }
 
 -- Set the desired non-LSP sources here.
