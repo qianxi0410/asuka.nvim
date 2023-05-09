@@ -1,5 +1,13 @@
 local editor = {}
 
+editor["kevinhwang91/nvim-ufo"] = {
+	lazy = true,
+	event = "BufRead",
+	dependencies = {
+		{ "kevinhwang91/promise-async" },
+	},
+	config = require("editor.ufo"),
+}
 editor["kevinhwang91/nvim-hlslens"] = {
 	lazy = true,
 	event = "CursorHold",
