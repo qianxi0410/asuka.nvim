@@ -1,5 +1,10 @@
 local editor = {}
 
+editor["kevinhwang91/nvim-hlslens"] = {
+	lazy = true,
+	event = "CursorHold",
+	config = require("editor.hlslens"),
+}
 editor["nvim-pack/nvim-spectre"] = {
 	lazy = true,
 	cmd = "Spectre",
