@@ -8,6 +8,11 @@ tool["tpope/vim-fugitive"] = {
 	lazy = true,
 	cmd = { "Git", "G" },
 }
+tool["akinsho/git-conflict.nvim"] = {
+	lazy = true,
+	cmd = { "GitConflict" },
+	config = require("tool.git-conflict"),
+}
 -- only for fcitx5 user who uses non-English language during coding
 tool["pysan3/fcitx5.nvim"] = {
 	lazy = true,
