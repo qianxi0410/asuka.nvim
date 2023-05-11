@@ -68,6 +68,7 @@ settings["lsp"] = {
 	"jedi_language_server",
 	"gopls",
 	"pylsp",
+	"cspell",
 }
 
 -- Set the desired non-LSP sources here.

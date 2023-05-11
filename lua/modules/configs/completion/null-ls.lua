@@ -40,7 +40,16 @@ return function()
 
 			btns.diagnostics.eslint,
 			btns.diagnostics.golangci_lint,
-			-- null_ls.builtins.diagnostics.cspell,
+			btns.diagnostics.cspell.with({
+				diagnostics_postprocess = function(diagnostic)
+					diagnostic.severity = vim.diagnostic.severity["HINT"]
+				end,
+				condition = function()
+					return vim.fn.executable("cspell") > 0
+				end,
+			}),
+
+			btns.code_actions.cspell,
 		},
 		on_attach = function(client, bufnr)
 			if client.supports_method("textDocument/formatting") then
