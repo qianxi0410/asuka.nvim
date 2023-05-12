@@ -86,9 +86,14 @@ settings["null_ls"] = {
 	"rustfmt",
 	"shfmt",
 	"stylua",
+	"goimports",
+	"golines",
+	"prettier",
 
 	-- diagnostics
 	"shellcheck",
+	"golangci_lint",
+	"cspell",
 	-- "markdownlint",
 }
 
