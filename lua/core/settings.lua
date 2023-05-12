@@ -8,9 +8,8 @@ settings["use_ssh"] = true
 settings["format_on_save"] = true
 
 -- Set it to false if diagnostics virtual text is annoying for you
----@type boolean
-settings["diagnostics_virtual_text"] = true
-
+---@type string
+settings["diagnostics_virtual_text_severity_limit"] = "Warning"
 -- Set the format disabled directories here, files under these dirs won't be formatted on save.
 settings["format_disabled_dirs"] = {
 	home .. "/format_disabled_dir_under_home",

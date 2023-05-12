@@ -38,10 +38,13 @@ return function()
 	capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 	vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-		signs = true,
+		signs = false,
 		underline = true,
-		virtual_text = require("core.settings").diagnostics_virtual_text,
-		-- set update_in_insert to false bacause it was enabled by lspsaga
+		virtual_text = {
+			prefix = "●",
+			severity_limit = require("core.settings").diagnostics_virtual_text_severity_limit,
+		},
+		-- set update_in_insert to false because it was enabled by lspsaga
 		update_in_insert = false,
 	})
 
