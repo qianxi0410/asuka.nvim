@@ -119,5 +119,10 @@ return function()
 			{ name = "buffer" },
 			-- { name = "latex_symbols" },
 		},
+		experimental = {
+			ghost_text = {
+				hl_group = "Whitespace",
+			},
+		},
 	})
 end
