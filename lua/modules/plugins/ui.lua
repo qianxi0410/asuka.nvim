@@ -14,11 +14,6 @@ ui["akinsho/bufferline.nvim"] = {
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = require("ui.bufferline"),
 }
-ui["catppuccin/nvim"] = {
-	lazy = false,
-	name = "catppuccin",
-	config = require("ui.catppuccin"),
-}
 ui["j-hui/fidget.nvim"] = {
 	lazy = true,
 	event = "LspAttach",
