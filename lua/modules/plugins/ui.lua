@@ -1,6 +1,6 @@
 local ui = {}
 
-ui["ellisonleao/gruvbox.nvim"] = {
+ui["sainnhe/gruvbox-material"] = {
 	lazy = false,
 	config = require("ui.gruvbox"),
 }

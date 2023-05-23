@@ -143,6 +143,17 @@ You're recommended to install PowerShell for better experience.]],
 	end
 end
 
+local set_ui = function()
+	local colorscheme = require("core.settings").colorscheme
+	local background = require("core.settings").background
+	vim.api.nvim_command("set background=" .. background)
+	vim.api.nvim_command("colorscheme " .. colorscheme)
+
+	vim.api.nvim_command("highlight Pmenu guibg='#282828'")
+	vim.api.nvim_command("highlight NormalFloat guibg=#282828")
+	vim.api.nvim_command("highlight FloatBorder guibg=#282828")
+end
+
 local load_core = function()
 	createdir()
 	disable_distribution_plugins()
@@ -158,10 +169,7 @@ local load_core = function()
 	require("core.event")
 	require("core.pack")
 
-	local colorscheme = require("core.settings").colorscheme
-	local background = require("core.settings").background
-	vim.api.nvim_command("set background=" .. background)
-	vim.api.nvim_command("colorscheme " .. colorscheme)
+	set_ui()
 end
 
 load_core()

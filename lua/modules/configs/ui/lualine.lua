@@ -101,9 +101,21 @@ return function()
 		return ""
 	end
 
-	local gruvbox = require("lualine.themes.gruvbox-material")
-	gruvbox.normal.c.bg = "#282828"
-	gruvbox.normal.b.bg = "#282828"
+	local function lualine_gruvbox()
+		local gruvbox = require("lualine.themes.gruvbox-material")
+		gruvbox.normal.c.bg = "#282828"
+		gruvbox.normal.b.bg = "#282828"
+
+		gruvbox.insert.c.bg = "#282828"
+		gruvbox.insert.b.bg = "#282828"
+
+		gruvbox.visual.c.bg = "#282828"
+		gruvbox.visual.b.bg = "#282828"
+
+		return gruvbox
+	end
+
+	local gruvbox = lualine_gruvbox()
 
 	require("lualine").setup({
 		options = {
@@ -116,7 +128,8 @@ return function()
 		sections = {
 			lualine_a = { { "mode" } },
 			lualine_b = { { "branch" }, { "diff", source = diff_source } },
-			lualine_c = { lspsaga_symbols },
+			-- lualine_c = { lspsaga_symbols },
+			lualine_c = {},
 			lualine_x = {
 				{ escape_status },
 				{
