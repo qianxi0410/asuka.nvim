@@ -10,6 +10,14 @@ settings["format_on_save"] = true
 -- Set it to false if diagnostics virtual text is annoying for you
 ---@type string
 settings["diagnostics_virtual_text_severity_limit"] = "Warning"
+-- Set it to false if diagnostics virtual text is annoying for you
+---@type boolean
+settings["diagnostics_virtual_text"] = true
+
+-- Set it to false if the notification after formatting is annoying.
+---@type boolean
+settings["format_notify"] = false
+
 -- Set the format disabled directories here, files under these dirs won't be formatted on save.
 settings["format_disabled_dirs"] = {
 	home .. "/format_disabled_dir_under_home",
@@ -40,13 +48,13 @@ settings["background"] = "dark"
 ---@type string
 settings["external_browser"] = "chrome-cli open"
 
--- Filetypes in this list will skip lsp formatting if rhs is true
+-- Filetypes in this list will skip lsp formatting if rhs is true.
 ---@type table<string, boolean>
 settings["formatter_block_list"] = {
 	lua = false, -- example
 }
 
--- Servers in this list will skip setting formatting capabilities if rhs is true
+-- Servers in this list will skip setting formatting capabilities if rhs is true.
 ---@type table<string, boolean>
 settings["server_formatting_block_list"] = {
 	lua_ls = true,
@@ -55,7 +63,7 @@ settings["server_formatting_block_list"] = {
 	pylsp = true,
 }
 
--- Set the language servers that will be installed during bootstrap here
+-- Set the language servers that will be installed during bootstrap here.
 -- check the below link for all the supported LSPs:
 -- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/server_configurations
 settings["lsp"] = {
@@ -72,6 +80,8 @@ settings["lsp"] = {
 
 -- Set the desired non-LSP sources here.
 -- check the below link for all supported non-LSP sources
+-- Set the general-purpose servers that will be installed during bootstrap here
+-- check the below link for all supported sources
 -- in `code_actions`, `completion`, `diagnostics`, `formatting`, `hover` folders:
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins
 settings["null_ls"] = {
