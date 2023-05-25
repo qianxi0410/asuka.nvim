@@ -64,6 +64,10 @@ return function(options)
 			"--completion-style=detailed",
 			"--header-insertion-decorators",
 			"--header-insertion=iwyu",
+			"--suggest-missing-includes",
+			"--cross-file-rename",
+			"--function-arg-placeholders=false",
+			"--ranking-model=decision_forest",
 		},
 		commands = {
 			ClangdSwitchSourceHeader = {
