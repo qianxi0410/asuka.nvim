@@ -82,7 +82,7 @@ return function()
 		dap_retries = 20, -- see dap option max_retries
 		build_tags = "tag1,tag2", -- set default build tags
 		textobjects = true, -- enable default text jobects through treesittter-text-objects
-		test_runner = "go", -- one of {`go`, `richgo`, `dlv`, `ginkgo`, `gotestsum`}
+		test_runner = "gotestsum", -- one of {`go`, `richgo`, `dlv`, `ginkgo`, `gotestsum`}
 		verbose_tests = true, -- set to add verbose flag to tests deprecated, see '-v' option
 		run_in_floaterm = false, -- set to true to run in float window. :GoTermClose closes the floatterm
 		-- float term recommend if you use richgo/ginkgo with terminal color
