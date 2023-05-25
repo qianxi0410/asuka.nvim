@@ -112,6 +112,9 @@ return function()
 		gruvbox.visual.c.bg = "#282828"
 		gruvbox.visual.b.bg = "#282828"
 
+		gruvbox.command.c.bg = "#282828"
+		gruvbox.command.b.bg = "#282828"
+
 		return gruvbox
 	end
 
