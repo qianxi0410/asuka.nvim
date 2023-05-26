@@ -41,7 +41,7 @@ return function()
 		signs = false,
 		underline = true,
 		virtual_text = {
-			prefix = "●",
+			prefix = " ",
 			severity_limit = require("core.settings").diagnostics_virtual_text_severity_limit,
 		},
 		-- set update_in_insert to false because it was enabled by lspsaga
