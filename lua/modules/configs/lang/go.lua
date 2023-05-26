@@ -14,13 +14,7 @@ return function()
 		comment_placeholder = "", -- comment_placeholder your cool placeholder e.g. ﳑ       
 		icons = { breakpoint = "🧘", currentpos = "🏃" }, -- setup to `false` to disable icons setup
 		verbose = false, -- output loginf in messages
-		lsp_cfg = {
-			settings = {
-				gopls = {
-					usePlaceholders = false,
-				},
-			},
-		}, -- true: use non-default gopls setup specified in go/lsp.lua
+		lsp_cfg = false, -- true: use non-default gopls setup specified in go/lsp.lua
 		-- false: do nothing
 		-- if lsp_cfg is a table, merge table with with non-default gopls setup in go/lsp.lua, e.g.
 		--   lsp_cfg = {settings={gopls={matcher='CaseInsensitive', ['local'] = 'your_local_module_path', gofumpt = true }}}
@@ -38,7 +32,7 @@ return function()
 		lsp_diag_underline = true,
 		-- virtual text setup
 		lsp_diag_virtual_text = { space = 0, prefix = "" },
-		lsp_diag_signs = true,
+		lsp_diag_signs = false,
 		lsp_diag_update_in_insert = false,
 		lsp_document_formatting = false,
 		-- set to true: use gopls to format
