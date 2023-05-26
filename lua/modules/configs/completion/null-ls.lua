@@ -38,7 +38,31 @@ return function()
 		btns.formatting.prettier,
 
 		btns.diagnostics.eslint,
-		btns.diagnostics.golangci_lint,
+		btns.diagnostics.golangci_lint.with({
+			extra_args = {
+				"--disable-all",
+				"--enable=errcheck",
+				"--enable=gosimple",
+				"--enable=govet",
+				"--enable=ineffassign",
+				"--enable=staticcheck",
+				"--enable=typecheck",
+				"--enable=unused",
+				"--enable=revive",
+				"--enable=errorlint",
+				"--enable=exhaustive",
+				"--enable=unconvert",
+				"--enable=wsl",
+			},
+
+			diagnostic_config = {
+				underline = true,
+				virtual_text = true,
+				signs = false,
+				update_in_insert = false,
+				severity_sort = true,
+			},
+		}),
 		btns.diagnostics.cspell.with({
 			diagnostics_postprocess = function(diagnostic)
 				diagnostic.severity = vim.diagnostic.severity["HINT"]
