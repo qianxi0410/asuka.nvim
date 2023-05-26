@@ -167,7 +167,34 @@ return function()
 		server = {
 			-- standalone file support
 			-- setting it to false may improve startup time
-			standalone = true,
+			standalone = false,
+			settings = {
+				["rust-analyzer"] = {
+					unstable_features = true,
+					build_on_save = false,
+					all_features = true,
+					checkOnSave = {
+						-- enable = true,
+						command = "clippy",
+					},
+					diagnostics = {
+						enable = true,
+						experimental = {
+							enable = true,
+						},
+					},
+					assist = {
+						importGranularity = "module",
+						importPrefix = "by_self",
+					},
+					cargo = {
+						loadOutDirsFromCheck = true,
+					},
+					procMacro = {
+						enable = true,
+					},
+				},
+			},
 		}, -- rust-analyer options
 
 		-- debugging stuff
