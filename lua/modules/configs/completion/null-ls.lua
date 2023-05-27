@@ -57,7 +57,10 @@ return function()
 
 			diagnostic_config = {
 				underline = true,
-				virtual_text = true,
+				virtual_text = {
+					prefix = "",
+					severity_limit = require("core.settings").diagnostics_virtual_text_severity_limit,
+				},
 				signs = false,
 				update_in_insert = false,
 				severity_sort = true,
