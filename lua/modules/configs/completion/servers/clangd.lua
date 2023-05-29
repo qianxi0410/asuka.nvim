@@ -55,6 +55,8 @@ return function(options)
 		single_file_support = true,
 		cmd = {
 			"clangd",
+			"-j=12",
+			"--enable-config",
 			"--background-index",
 			"--pch-storage=memory",
 			-- You MUST set this arg ↓ to your c/cpp compiler location (if not included)!
@@ -68,6 +70,8 @@ return function(options)
 			"--cross-file-rename",
 			"--function-arg-placeholders=false",
 			"--ranking-model=decision_forest",
+			"--limit-references=3000",
+			"--limit-results=350",
 		},
 		commands = {
 			ClangdSwitchSourceHeader = {

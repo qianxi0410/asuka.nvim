@@ -72,6 +72,10 @@ return function()
 				return kind
 			end,
 		},
+		performance = {
+			async_budget = 1,
+			max_view_entries = 300,
+		},
 		-- You can set mappings if you want
 		mapping = cmp.mapping.preset.insert({
 			["<CR>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
