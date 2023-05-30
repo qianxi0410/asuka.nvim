@@ -1,8 +1,8 @@
 return function()
 	local nvim_lsp = require("lspconfig")
 	local mason = require("mason")
+	local mason_registry = require("mason-registry")
 	local mason_lspconfig = require("mason-lspconfig")
-
 	require("lspconfig.ui.windows").default_options.border = "single"
 
 	local icons = {
@@ -12,7 +12,7 @@ return function()
 
 	mason.setup({
 		ui = {
-			border = "rounded",
+			border = "single",
 			icons = {
 				package_pending = icons.ui.Modified_alt,
 				package_installed = icons.ui.Check,
@@ -30,6 +30,59 @@ return function()
 			},
 		},
 	})
+
+	-- Additional plugins for pylsp
+	mason_registry:on(
+		"package:install:success",
+		vim.schedule_wrap(function(pkg)
+			if pkg.name ~= "python-lsp-server" then
+				return
+			end
+
+			local venv = vim.fn.stdpath("data") .. "/mason/packages/python-lsp-server/venv"
+			require("plenary.job")
+				:new({
+					command = venv .. "/bin/python",
+					args = {
+						"-m",
+						"pip",
+						"install",
+						"-U",
+						"--disable-pip-version-check",
+						"python-lsp-black",
+						"python-lsp-ruff",
+						"pylsp-rope",
+					},
+					cwd = venv,
+					env = { VIRTUAL_ENV = venv },
+					on_exit = function()
+						if
+							vim.fn.executable(venv .. "/bin/black") == 1
+							and vim.fn.executable(venv .. "/bin/ruff") == 1
+						then
+							vim.notify(
+								"Finished installing pylsp plugins",
+								vim.log.levels.INFO,
+								{ title = "[lsp] Install Status" }
+							)
+							return
+						end
+					end,
+					on_start = function()
+						vim.notify(
+							"Now installing pylsp plugins...",
+							vim.log.levels.INFO,
+							{ title = "[lsp] Install Status", timeout = 6000 }
+						)
+					end,
+					on_stderr = function(_, msg_stream)
+						vim.notify(msg_stream, vim.log.levels.ERROR, { title = "[lsp] Install Failure" })
+					end,
+				})
+				:start()
+		end)
+	)
+
 	mason_lspconfig.setup({
 		ensure_installed = require("core.settings").lsp_deps,
 	})
@@ -95,7 +148,7 @@ return function()
 
 	mason_lspconfig.setup_handlers({ mason_handler })
 
-	-- Set lsps that are not supported by `mason.nvim` but supported by `nvim-lspconfig` here.
+	-- Setup lsps that are not supported by `mason.nvim` but supported by `nvim-lspconfig` here.
 	if vim.fn.executable("dart") == 1 then
 		local _opts = require("completion.servers.dartls")
 		local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
