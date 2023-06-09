@@ -36,6 +36,9 @@ return function()
 			},
 		}),
 		btns.formatting.prettier,
+		-- python
+		btns.formatting.ruff,
+		btns.formatting.black,
 
 		btns.diagnostics.eslint,
 		btns.diagnostics.golangci_lint.with({
@@ -94,7 +97,7 @@ return function()
 					group = augroup,
 					buffer = bufnr,
 					callback = function()
-						lsp_formatting(bufnr)
+						vim.lsp.buf.format({ async = false })
 					end,
 				})
 			end
