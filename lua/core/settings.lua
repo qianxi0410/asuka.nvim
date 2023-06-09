@@ -53,34 +53,18 @@ settings["background"] = "dark"
 ---@type string
 settings["external_browser"] = "chrome-cli open"
 
--- Filetypes in this list will skip lsp formatting if rhs is true.
----@type table<string, boolean>
-settings["formatter_block_list"] = {
-	lua = false, -- example
-}
-
--- Servers in this list will skip setting formatting capabilities if rhs is true.
----@type table<string, boolean>
-settings["server_formatting_block_list"] = {
-	lua_ls = true,
-	tsserver = true,
-	clangd = true,
-	pylsp = true,
-}
-
 -- Set the language servers that will be installed during bootstrap here.
 -- check the below link for all the supported LSPs:
 -- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/server_configurations
 settings["lsp"] = {
 	"bashls",
 	"clangd",
-	"html",
 	"jsonls",
 	"lua_ls",
-	"jedi_language_server",
 	"gopls",
 	"pylsp",
 	"cspell",
+	"rust_analyzer",
 }
 
 -- Set the desired non-LSP sources here.
