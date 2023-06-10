@@ -58,7 +58,7 @@ return function(options)
 			"--function-arg-placeholders=false",
 			"--ranking-model=decision_forest",
 			"--limit-references=3000",
-			"--limit-results=270",
+			"--limit-results=350",
 		},
 		commands = {
 			ClangdSwitchSourceHeader = {
