@@ -81,6 +81,8 @@ settings["null_ls"] = {
 	"markdownlint",
 	"prettierd",
 	"rustfmt",
+	"prettier",
+	"rustfmt",
 	"shfmt",
 	"stylua",
 	"goimports",

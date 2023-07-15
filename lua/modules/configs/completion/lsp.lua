@@ -97,9 +97,6 @@ return function()
 		ensure_installed = require("core.settings").lsp_deps,
 	})
 
-	local capabilities = vim.lsp.protocol.make_client_capabilities()
-	capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-
 	vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 		signs = false,
 		underline = true,
@@ -127,9 +124,8 @@ return function()
 			-- 	},
 			-- })
 		end,
-		capabilities = capabilities,
+		capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
 	}
-
 	---A handler to setup all servers defined under `completion/servers/*.lua`
 	---@param lsp_name string
 	local function mason_lsp_handler(lsp_name)
