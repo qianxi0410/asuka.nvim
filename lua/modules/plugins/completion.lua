@@ -12,10 +12,10 @@ completion["neovim/nvim-lspconfig"] = {
 			"nvimdev/lspsaga.nvim",
 			config = require("completion.lspsaga"),
 		},
-		{
-			"ray-x/lsp_signature.nvim",
-			config = require("completion.lsp-signature"),
-		},
+		-- {
+		-- 	"ray-x/lsp_signature.nvim",
+		-- 	config = require("completion.lsp-signature"),
+		-- },
 	},
 }
 completion["nvimdev/lspsaga.nvim"] = {
