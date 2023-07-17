@@ -2,6 +2,12 @@ local global = require("core.global")
 
 local function load_options()
 	local global_local = {
+		-- backupdir = global.cache_dir .. "backup/",
+		-- directory = global.cache_dir .. "swap/",
+		-- pumblend = 10,
+		-- spellfile = global.cache_dir .. "spell/en.uft-8.add",
+		-- viewdir = global.cache_dir .. "view/",
+		-- winblend = 10,
 		autoindent = true,
 		autoread = true,
 		autowrite = true,
@@ -48,6 +54,8 @@ local function load_options()
 		number = true,
 		numberwidth = 1,
 		previewheight = 12,
+		-- Do NOT adjust the following option (pumblend) if you're using transparent background
+		pumblend = 0,
 		pumheight = 15,
 		redrawtime = 1500,
 		relativenumber = true,
@@ -90,6 +98,8 @@ local function load_options()
 		whichwrap = "h,l,<,>,[,],~",
 		wildignore = ".git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/node_modules/**,**/bower_modules/**",
 		wildignorecase = true,
+		-- Do NOT adjust the following option (winblend) if you're using transparent background
+		winblend = 0,
 		winminwidth = 10,
 		winwidth = 30,
 		wrap = false,
