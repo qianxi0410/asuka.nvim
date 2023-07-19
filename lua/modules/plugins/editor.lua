@@ -54,7 +54,7 @@ editor["LunarVim/bigfile.nvim"] = {
 }
 editor["ojroques/nvim-bufdel"] = {
 	lazy = true,
-	event = "BufReadPre",
+	cmd = { "BufDel", "BufDelAll", "BufDelOthers" },
 }
 editor["rhysd/clever-f.vim"] = {
 	lazy = true,
