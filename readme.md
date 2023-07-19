@@ -26,4 +26,4 @@ git clone https://github.com/qianxi0410/.nvim ~/.config/nvim
 
 ## 致谢
 
-这是来自[ayamir/nvimdots](https://github.com/ayamir/nvimdots)一份 fork，大多的配置都自他而来
+这是来自 [ayamir/nvimdots](https://github.com/ayamir/nvimdots) 一份 fork，大多的配置都自他而来
