@@ -70,13 +70,14 @@ M.dap = {
   plugin = true,
   n = {
     ["<leader>b"] = { "<cmd>DapToggleBreakpoint<cr>", "Add breakpoint" },
-    ["<F5>"] = { "<cmd>DapContinue<cr>", "Continue debug" },
+    ["<F5>"] = { "<cmd>:Telescope dap configurations<cr>", "Continue debug" },
     ["<F6>"] = { "<cmd>DapStepOver<cr>", "Step over" },
     ["<F7>"] = { "<cmd>DapStepInto<cr>", "Step into" },
     ["<F8>"] = { "<cmd>DapStepOut<cr>", "Step out" },
     ["<leader>ds"] = { "<cmd>DapStop<cr>", "Dap stop" },
     ["<leader>dt"] = { "<cmd>DapTerminate", "Dap terminate" },
     ["<leader>dr"] = { "<cmd>DapToggleRepl<cr>", "Open REPL" },
+    ["<leader>db"] = { "<cmd>Telescope dap list_breakpoints<cr>", "List breakpoints" },
   },
 }
 

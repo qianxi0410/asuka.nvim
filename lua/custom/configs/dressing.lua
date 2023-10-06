@@ -161,6 +161,16 @@ require("dressing").setup {
     format_item_override = {},
 
     -- see :help dressing_get_config
-    get_config = nil,
+    get_config = function(opts)
+      if opts.kind == "legendary.nvim" then
+        return {
+          telescope = {
+            sorter = require("telescope.sorters").fuzzy_with_index_bias {},
+          },
+        }
+      else
+        return {}
+      end
+    end,
   },
 }
