@@ -3,6 +3,7 @@ local opt = {
     "file_browser",
     "frecency",
     "yank_history",
+    "dap",
   },
 }
 
