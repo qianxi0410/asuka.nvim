@@ -2,15 +2,15 @@ local null_ls = require "null-ls"
 local b = null_ls.builtins
 
 local sources = {
-  -- webdev stuff
-  b.formatting.deno_fmt, -- choosed deno for ts/js files cuz its very fast!
-  b.formatting.prettier.with { filetypes = { "html", "markdown", "css" } }, -- so prettier works only on these filetypes
+  -- markdown
+  b.formatting.prettier.with { filetypes = { "markdown" } }, -- so prettier works only on these filetypes
 
   -- Lua
   b.formatting.stylua,
 
   -- cpp
   b.formatting.clang_format,
+  -- already covered by clangd: https://stackoverflow.com/questions/49943781/does-clang-tidy-make-clang-check-redundant
 
   -- go
   b.formatting.goimports,
@@ -48,12 +48,33 @@ local sources = {
       severity_sort = true,
     },
   },
+  b.code_actions.impl,
+  b.code_actions.gomodifytags,
 
   -- rust
   b.formatting.rustfmt,
+  -- rust don't need extra diagnostics since it's already covered by rust-analyzer's clippy
 
   -- shell
   b.formatting.shfmt,
+
+  -- cspell
+  b.diagnostics.cspell.with {
+    diagnostic_config = {
+      level = "Information",
+      underline = true,
+      -- don't show virtual text for spelling
+      virtual_text = false,
+      signs = false,
+      update_in_insert = false,
+      severity_sort = true,
+    },
+    -- cspell should only run on INFO level
+    diagnostics_postprocess = function(diagnostic)
+      diagnostic.severity = vim.diagnostic.severity["INFO"]
+    end,
+  },
+  b.code_actions.cspell,
 }
 
 -- auto formatting on save
