@@ -55,6 +55,12 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = require "custom.configs.treesitter",
+    dependencies = {
+      {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        event = "BufRead",
+      },
+    },
   },
 
   {
