@@ -250,6 +250,19 @@ local plugins = {
       require "custom.configs.surround"
     end,
   },
+
+  {
+    "kevinhwang91/nvim-ufo",
+    event = "BufRead",
+    config = function()
+      require "custom.configs.ufo"
+    end,
+    dependencies = {
+      {
+        "kevinhwang91/promise-async",
+      },
+    },
+  },
 }
 
 return plugins
