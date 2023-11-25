@@ -32,9 +32,6 @@ local plugins = {
       -- lspsaga
       {
         "nvimdev/lspsaga.nvim",
-        init = function()
-          require("core.utils").load_mappings "lspsaga"
-        end,
         config = function()
           require "custom.configs.lspsaga"
         end,
@@ -107,9 +104,6 @@ local plugins = {
   {
     "nvim-pack/nvim-spectre",
     event = "InsertEnter",
-    init = function()
-      require("core.utils").load_mappings "spectre"
-    end,
     config = function()
       require "custom.configs.spectre"
     end,
@@ -133,9 +127,6 @@ local plugins = {
     "phaazon/hop.nvim",
     branch = "v2",
     event = { "CursorHold", "CursorHoldI" },
-    init = function()
-      require("core.utils").load_mappings "hop"
-    end,
     config = function()
       require "custom.configs.hop"
     end,
@@ -182,7 +173,6 @@ local plugins = {
 
   {
     "mfussenegger/nvim-dap",
-    init = require("core.utils").load_mappings "dap",
     config = function()
       require "custom.configs.dap"
     end,
@@ -207,7 +197,6 @@ local plugins = {
     config = function()
       require "custom.configs.neotest"
     end,
-    init = require("core.utils").load_mappings "neotest",
     dependencies = {
       { "nvim-neotest/neotest-go" },
       { "rouge8/neotest-rust" },
@@ -234,12 +223,7 @@ local plugins = {
     -- since legendary.nvim handles all your keymaps/commands,
     -- its recommended to load legendary.nvim before other plugins
     lazy = false,
-    init = function()
-      require("core.utils").load_mappings "legendary"
-    end,
-    config = function()
-      require "custom.configs.legendary"
-    end,
+    priority = 1000,
     dependencies = {
       {
         "stevearc/dressing.nvim",
@@ -253,7 +237,6 @@ local plugins = {
   {
     "gbprod/yanky.nvim",
     event = "BufRead",
-    init = require("core.utils").load_mappings "yanky",
     config = function()
       require "custom.configs.yanky"
     end,

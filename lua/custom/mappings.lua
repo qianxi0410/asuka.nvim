@@ -17,7 +17,6 @@ M.general = {
 }
 
 M.lspsaga = {
-  plugin = true,
   n = {
     ["<leader>ca"] = { "<cmd>Lspsaga code_action<cr>", "code action" },
     ["K"] = { "<cmd>Lspsaga hover_doc<cr>", "hover doc" },
@@ -35,7 +34,6 @@ M.lspsaga = {
 }
 
 M.spectre = {
-  plugin = true,
   n = {
     ["<leader>sr"] = { "<cmd>lua require('spectre').open()<cr>", "replace" },
     ["<leader>sf"] = { "<cmd>lua require('spectre').open_file_search()<cr>", "file search" },
@@ -45,7 +43,6 @@ M.spectre = {
 }
 
 M.hop = {
-  plugin = true,
   n = {
     ["<leader>hw"] = { "<cmd>HopWord<cr>", "hop word" },
     ["<leader>j"] = { "<cmd>HopLine<cr>", "hop line" },
@@ -59,7 +56,6 @@ M.hop = {
 }
 
 M.telescope = {
-  plugin = true,
   n = {
     ["<leader>fd"] = { "<cmd>Telescope file_browser<cr>", "File browser" },
     ["<leader>fr"] = { "<cmd>Telescope frecency<cr>", "Find frecencfrecencyy" },
@@ -67,7 +63,6 @@ M.telescope = {
 }
 
 M.dap = {
-  plugin = true,
   n = {
     ["<leader>b"] = { "<cmd>DapToggleBreakpoint<cr>", "Add breakpoint" },
     ["<F5>"] = { "<cmd>:Telescope dap configurations<cr>", "Continue debug" },
@@ -82,7 +77,6 @@ M.dap = {
 }
 
 M.neotest = {
-  plugin = true,
   n = {
     ["<leader>ts"] = { "<cmd>lua require('neotest').summary.open()<cr>", "test summary open" },
     ["<leader>tx"] = { "<cmd>lua require('neotest').summary.close()<cr>", "test summary close" },
@@ -93,14 +87,12 @@ M.neotest = {
 }
 
 M.legendary = {
-  plugin = true,
   n = {
     ["<C-p>"] = { "<cmd>Legendary<cr>", "legendary run" },
   },
 }
 
 M.yanky = {
-  plugin = true,
   n = {
     ["<leader>p"] = { "<cmd>:Telescope yank_history<cr>", "yank history" },
   },
