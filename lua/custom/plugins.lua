@@ -223,7 +223,6 @@ local plugins = {
     -- since legendary.nvim handles all your keymaps/commands,
     -- its recommended to load legendary.nvim before other plugins
     lazy = false,
-    priority = 1000,
     dependencies = {
       {
         "stevearc/dressing.nvim",
