@@ -102,5 +102,9 @@ for k, v in pairs(opt) do
   vim.opt[k] = v
 end
 
--- ban auto comment new_lines
+-- 关闭换行注释
 vim.cmd [[autocmd FileType * set formatoptions-=ro]]
+-- 离开vim的时候，不干扰终端的光标
+vim.cmd [[autocmd VimLeave * set guicursor=a:hor30-iCursor]]
+-- 把插入模式的光标改为下划线
+vim.cmd [[set guicursor=i:hor30-iCursor]]
