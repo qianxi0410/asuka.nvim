@@ -2,6 +2,9 @@ local null_ls = require "null-ls"
 local b = null_ls.builtins
 
 local sources = {
+  -- toml
+  b.formatting.taplo,
+
   -- markdown
   b.formatting.prettier.with { filetypes = { "markdown" } }, -- so prettier works only on these filetypes
 

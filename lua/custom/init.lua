@@ -87,7 +87,8 @@ local opt = {
   virtualedit = "block",
   visualbell = true,
   whichwrap = "h,l,<,>,[,],~",
-  wildignore = ".git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/node_modules/**,**/bower_modules/**",
+  wildignore =
+  ".git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/node_modules/**,**/bower_modules/**",
   wildignorecase = true,
   -- Do NOT adjust the following option (winblend) if you're using transparent background
   winblend = 0,

@@ -96,3 +96,9 @@ lspconfig.clangd.setup {
     "--limit-results=350",
   },
 }
+
+lspconfig.taplo.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "toml" },
+}
