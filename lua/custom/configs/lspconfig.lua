@@ -102,3 +102,9 @@ lspconfig.taplo.setup {
   capabilities = capabilities,
   filetypes = { "toml" },
 }
+
+lspconfig.jsonls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "json", "jsonc" },
+}

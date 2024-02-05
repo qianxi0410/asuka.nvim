@@ -5,8 +5,8 @@ local sources = {
   -- toml
   b.formatting.taplo,
 
-  -- markdown
-  b.formatting.prettier.with { filetypes = { "markdown" } }, -- so prettier works only on these filetypes
+  -- markdown, css, json
+  b.formatting.prettier.with { filetypes = { "markdown", "css", "json", "jsonc" } }, -- so prettier works only on these filetypes
 
   -- Lua
   b.formatting.stylua,
