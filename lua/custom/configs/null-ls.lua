@@ -2,6 +2,22 @@ local null_ls = require "null-ls"
 local b = null_ls.builtins
 
 local sources = {
+  -- bash
+  b.formatting.shfmt,
+  b.diagnostics.shellcheck.with {
+    diagnostic_config = {
+      severity_sort = true,
+      update_in_insert = false,
+      underline = true,
+      virtual_text = {
+        prefix = "■",
+        severity_limit = "INFO",
+      },
+      signs = false,
+    },
+  },
+  b.code_actions.shellcheck,
+
   -- toml
   b.formatting.taplo,
 
