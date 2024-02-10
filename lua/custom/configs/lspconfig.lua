@@ -4,7 +4,11 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 -- if you just want default config for the servers then put them in a table
-local servers = {}
+local servers = {
+  "bashls",
+  "jsonls",
+  "taplo",
+}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -95,22 +99,4 @@ lspconfig.clangd.setup {
     "--limit-references=3000",
     "--limit-results=350",
   },
-}
-
-lspconfig.taplo.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = { "toml" },
-}
-
-lspconfig.jsonls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = { "json", "jsonc" },
-}
-
-lspconfig.bashls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = { "sh", "zsh" },
 }
