@@ -1,6 +1,6 @@
 ---@diagnostic disable: missing-fields
 require("nvim-treesitter.configs").setup {
-  ensure_installed = { "lua", "go", "markdown", "markdown_inline" },
+  ensure_installed = { "lua", "go", "markdown", "markdown_inline", "vimdoc" },
   sync_install = true,
   indent = {
     enable = true,
