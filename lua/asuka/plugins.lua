@@ -390,10 +390,6 @@ local plugins = {
       require "asuka.configs.noice"
     end,
   },
-  {
-    "dstein64/vim-startuptime",
-    cmd = "StartupTime",
-  },
 }
 
 require("lazy").setup(plugins, opts)
