@@ -273,7 +273,7 @@ local plugins = {
   -- Git
   {
     "lewis6991/gitsigns.nvim",
-    event = { "CursorHold", "CursorHoldI" },
+    event = "BufReadPost",
     config = function()
       require "asuka.configs.gitsigns"
     end,

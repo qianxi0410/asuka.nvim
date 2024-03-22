@@ -202,6 +202,10 @@ M.trouble = {
   { { "n" }, "<leader>db", "<cmd>TroubleToggle document_diagnostics<cr>", { desc = "Trouble lsp document" } },
 }
 
+M.neogit = {
+  { { "n" }, "<leader>gg", "<cmd>Neogit<cr>", { desc = "Neogit" } },
+}
+
 for _, plugin in pairs(M) do
   for _, v in ipairs(plugin) do
     vim.keymap.set(v[1], v[2], v[3], v[4])
