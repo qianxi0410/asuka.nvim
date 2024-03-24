@@ -30,6 +30,7 @@ local opt = {
   foldlevel = 99,
   foldlevelstart = 99,
   foldenable = true, -- 默认不折叠
+  guicursor = "n-v-ve-c:block,i-sm-ci:hor20,r-cr-o:hor20",
 }
 
 for k, v in pairs(opt) do
