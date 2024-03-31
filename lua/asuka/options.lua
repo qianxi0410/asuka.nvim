@@ -1,4 +1,5 @@
--- neovim's options
+local G = require "global"
+
 local opt = {
   number = true, -- 显示行号
   relativenumber = true, -- 使用相对行号
@@ -12,6 +13,7 @@ local opt = {
   -- smartcase = true, -- 智能大小写
   ignorecase = true, -- 忽略大小写
   undofile = true,
+  undodir = G.cache_dir .. "undo",
   signcolumn = "yes",
   smartindent = true,
   tabstop = 2, -- tab 的显示宽度对应的空格数量
@@ -49,6 +51,37 @@ local opt = {
   linebreak = true, -- 换行时自动断行
   pumblend = 0,
   pumheight = 15,
+  redrawtime = 1500,
+  scrolloff = 2,
+  sessionoptions = "buffers,curdir,folds,help,tabpages,winpos,winsize",
+  shada = "!,'500,<50,@100,s10,h",
+  shiftround = true,
+  shortmess = "aoOTIcF",
+  showbreak = "↳  ",
+  showcmd = false,
+  showmode = false,
+  sidescrolloff = 5,
+  smartcase = true,
+  splitkeep = "screen",
+  startofline = false,
+  swapfile = false,
+  switchbuf = "usetab,uselast",
+  synmaxcol = 2500,
+  ttimeout = true,
+  ttimeoutlen = 0,
+  -- Please do NOT set `updatetime` to above 500, otherwise most plugins may not function correctly
+  viewoptions = "folds,cursor,curdir,slash,unix",
+  virtualedit = "block",
+  whichwrap = "h,l,<,>,[,],~",
+  wildignore = ".git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/node_modules/**,**/bower_modules/**",
+  wildignorecase = true,
+  -- Do NOT adjust the following option (winblend) if you're using transparent background
+  winblend = 0,
+  winminwidth = 10,
+  winwidth = 30,
+  wrap = false,
+  wrapscan = true,
+  writebackup = false,
 }
 
 for k, v in pairs(opt) do
