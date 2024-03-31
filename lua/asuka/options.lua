@@ -1,4 +1,4 @@
-local G = require "global"
+local G = require "asuka.global"
 
 local opt = {
   number = true, -- 显示行号
