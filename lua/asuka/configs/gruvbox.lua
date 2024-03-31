@@ -1,3 +1,5 @@
+local G = require "asuka.global"
+
 local opts = {
   gruvbox_material_background = "hard",
   gruvbox_material_foreground = "original",
@@ -11,6 +13,10 @@ local opts = {
   gruvbox_material_diagnostic_virtual_text = "colored",
   gruvbox_material_statusline_style = "default",
 }
+
+if not G.is_linux then
+  opts.gruvbox_material_float_style = "bright"
+end
 
 for k, v in pairs(opts) do
   vim.g[k] = v
