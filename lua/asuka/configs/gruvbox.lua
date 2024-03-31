@@ -15,6 +15,3 @@ local opts = {
 for k, v in pairs(opts) do
   vim.g[k] = v
 end
-
--- apply the colorscheme
-vim.cmd [[ colorscheme gruvbox-material ]]
