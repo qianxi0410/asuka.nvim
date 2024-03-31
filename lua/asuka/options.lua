@@ -31,7 +31,33 @@ local opt = {
   foldlevelstart = 99,
   foldenable = true, -- 默认不折叠
   guicursor = "n-v-ve-c:block,i-sm-ci:hor20,r-cr-o:hor20",
+  fileformats = "unix,mac,dos",
+  updatetime = 200,
+  visualbell = true,
+  autowrite = true,
+  backupskip = "/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,*/shm/*,/private/var/*,.vault.vim",
+  concealcursor = "niv",
+  diffopt = "filler,iwhite,internal,linematch:60,algorithm:patience",
+  equalalways = false,
+  formatoptions = "1jcroql",
+  grepformat = "%f:%l:%c:%m",
+  grepprg = "rg --hidden --vimgrep --smart-case --",
+  helpheight = 12,
+  infercase = true, -- 自动调整大小写
+  jumpoptions = "stack",
+  laststatus = 3, -- 解决了 lualine 打开 neotree 显示状态栏消失的问题
+  linebreak = true, -- 换行时自动断行
+  pumblend = 0,
+  pumheight = 15,
 }
+
+-- 退出时恢复光标形状
+vim.cmd [[
+  augroup RestoreCursorShapeOnExit
+      autocmd!
+      autocmd VimLeave * set guicursor=a:hor20
+  augroup END
+]]
 
 for k, v in pairs(opt) do
   vim.opt[k] = v
